@@ -1,0 +1,2222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InsupanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CLIENTE_RETENCION">
+    <Key>
+      <PropertyRef Name="CLIENTE" />
+      <PropertyRef Name="CODIGO_RETENCION" />
+    </Key>
+    <Property Name="CLIENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CODIGO_RETENCION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOTAS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CLIENTE1" Relationship="InsupanModel.PRETCL" FromRole="CLIENTE_RETENCION" ToRole="CLIENTE" />
+  </EntityType>
+  <EntityType Name="EXISTENCIA_BODEGA">
+    <Key>
+      <PropertyRef Name="ARTICULO" />
+      <PropertyRef Name="BODEGA" />
+    </Key>
+    <Property Name="ARTICULO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BODEGA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EXISTENCIA_MINIMA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="EXISTENCIA_MAXIMA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PUNTO_DE_REORDEN" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_DISPONIBLE" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_RESERVADA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_NO_APROBADA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_VENCIDA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_TRANSITO" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_PRODUCCION" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_PEDIDA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_REMITIDA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CONGELADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_CONG" Type="DateTime" Precision="3" />
+    <Property Name="BLOQUEA_TRANS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_DESCONG" Type="DateTime" Precision="3" />
+    <Property Name="COSTO_UNT_PROMEDIO_LOC" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_UNT_PROMEDIO_DOL" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_UNT_ESTANDAR_LOC" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_UNT_ESTANDAR_DOL" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_PROM_COMPARATIVO_LOC" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_PROM_COMPARATIVO_DOLAR" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ARTICULO1" Relationship="InsupanModel.EXBODART" FromRole="EXISTENCIA_BODEGA" ToRole="ARTICULO" />
+    <NavigationProperty Name="BODEGA1" Relationship="InsupanModel.EXTBODBD" FromRole="EXISTENCIA_BODEGA" ToRole="BODEGA" />
+  </EntityType>
+  <EntityType Name="PEDIDO">
+    <Key>
+      <PropertyRef Name="PEDIDO1" />
+    </Key>
+    <Property Name="PEDIDO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_PEDIDO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_PROMETIDA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_PROX_EMBARQU" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_ULT_EMBARQUE" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_ULT_CANCELAC" Type="DateTime" Precision="3" />
+    <Property Name="ORDEN_COMPRA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_ORDEN" Type="DateTime" Precision="3" />
+    <Property Name="TARJETA_CREDITO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EMBARCAR_A" Type="String" MaxLength="160" FixedLength="false" Unicode="false" />
+    <Property Name="DIREC_EMBARQUE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIRECCION_FACTURA" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RUBRO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="COMENTARIO_CXC" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="TOTAL_MERCADERIA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_ANTICIPO" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_FLETE" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_SEGURO" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_DOCUMENTACIO" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_DESCUENTO1" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TIPO_DESCUENTO2" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MONTO_DESCUENTO1" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_DESCUENTO2" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_DESCUENTO1" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_DESCUENTO2" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_IMPUESTO1" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_IMPUESTO2" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_A_FACTURAR" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_COMI_VENDEDOR" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_COMI_COBRADOR" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_CANCELADO" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_UNIDADES" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="IMPRESO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_HORA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DESCUENTO_VOLUMEN" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_PEDIDO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MONEDA_PEDIDO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VERSION_NP" Type="Int32" Nullable="false" />
+    <Property Name="AUTORIZADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOC_A_GENERAR" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLASE_PEDIDO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MONEDA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NIVEL_PRECIO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COBRADOR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RUTA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USUARIO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONDICION_PAGO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BODEGA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ZONA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VENDEDOR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLIENTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLIENTE_DIRECCION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLIENTE_CORPORAC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CLIENTE_ORIGEN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PAIS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SUBTIPO_DOC_CXC" Type="Int16" />
+    <Property Name="TIPO_DOC_CXC" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="BACKORDER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTRATO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PORC_INTCTE" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="DESCUENTO_CASCADA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TIPO_CAMBIO" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="FIJAR_TIPO_CAMBIO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ORIGEN_PEDIDO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESC_DIREC_EMBARQUE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DIVISION_GEOGRAFICA1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DIVISION_GEOGRAFICA2" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BASE_IMPUESTO1" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="BASE_IMPUESTO2" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_PROYECTADA" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_APROBACION" Type="DateTime" Precision="3" />
+    <Property Name="TIPO_DOCUMENTO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VERSION_COTIZACION" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="RAZON_CANCELA_COTI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DES_CANCELA_COTI" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="CAMBIOS_COTI" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="COTIZACION_PADRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_IMPOSITIVA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_IMPOSITIVA_PORC" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_CREE1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_CREE1_PORC" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_CREE2" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_CREE2_PORC" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_GAN_OCASIONAL_PORC" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CONTRATO_AC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CONTRATO_AC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PERIODICIDAD_CONTRATO_AC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_CONTRATO_AC" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_INICIO_CONTRATO_AC" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_PROXFAC_CONTRATO_AC" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_FINFAC_CONTRATO_AC" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_ULTAUMENTO_CONTRATO_AC" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_PROXFACSIST_CONTRATO_AC" Type="DateTime" Precision="3" />
+    <Property Name="DIFERIDO_CONTRATO_AC" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="TOTAL_CONTRATO_AC" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="CONTRATO_REVENTA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="USR_NO_APRUEBA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_NO_APRUEBA" Type="DateTime" Precision="3" />
+    <Property Name="RAZON_DESAPRUEBA" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="MODULO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CORREOS_ENVIO" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="CONTRATO_VIGENCIA_DESDE" Type="DateTime" Precision="3" />
+    <Property Name="CONTRATO_VIGENCIA_HASTA" Type="DateTime" Precision="3" />
+    <Property Name="USO_CFDI" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="FORMA_PAGO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CLAVE_REFERENCIA_DE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_REFERENCIA_DE" Type="DateTime" Precision="3" />
+    <Property Name="TIPO_OPERACION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="INCOTERMS" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_WM_NUMERO_VENDEDOR" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_WM_ENVIAR_GLN" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_WM_NUMERO_RECEPCION" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_WM_NUMERO_RECLAMO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_WM_FECHA_RECLAMO" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_PC_NUMERO_VENDEDOR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_PC_ENVIAR_GLN" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_GS_NUMERO_VENDEDOR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_GS_ENVIAR_GLN" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_GS_NUMERO_RECEPCION" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_GS_FECHA_RECEPCION" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_AM_NUMERO_PROVEEDOR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_AM_ENVIAR_GLN" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_AM_NUMERO_RECEPCION" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_AM_NUMERO_RECLAMO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_AM_FECHA_RECLAMO" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_AM_FECHA_RECEPCION" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_CC_REMISION" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_CC_FECHA_CONSUMO" Type="DateTime" Precision="0" />
+    <Property Name="U_AD_CC_HOJA_ENTRADA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="ACTIVIDAD_COMERCIAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MONTO_OTRO_CARGO" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="CODIGO_REFERENCIA_DE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_REFERENCIA_DE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ES_FACTURA_REEMPLAZO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FACTURA_ORIGINAL_REEMPLAZO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CONSECUTIVO_FTC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_FTC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NIT_TRANSPORTADOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_OC_EXENTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_CONS_REG_EXO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_IRSEDE_AGR_GAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PEDIDO_LINEA" Relationship="Self.PELIPEDI" FromRole="PEDIDO" ToRole="PEDIDO_LINEA" />
+    <NavigationProperty Name="CLIENTE1" Relationship="InsupanModel.PEDICLIE" FromRole="PEDIDO" ToRole="CLIENTE" />
+    <NavigationProperty Name="CLIENTE2" Relationship="InsupanModel.PEDICLIECORPORAC" FromRole="PEDIDO" ToRole="CLIENTE" />
+    <NavigationProperty Name="CLIENTE3" Relationship="InsupanModel.PEDICLIEDIRECCION" FromRole="PEDIDO" ToRole="CLIENTE" />
+    <NavigationProperty Name="CLIENTE4" Relationship="InsupanModel.PEDICLIEORIGEN" FromRole="PEDIDO" ToRole="CLIENTE" />
+    <NavigationProperty Name="NIVEL_PRECIO1" Relationship="InsupanModel.NIPRPEDI" FromRole="PEDIDO" ToRole="NIVEL_PRECIO" />
+    <NavigationProperty Name="BODEGA1" Relationship="InsupanModel.PEDIBODE" FromRole="PEDIDO" ToRole="BODEGA" />
+    <NavigationProperty Name="CONDICION_PAGO1" Relationship="InsupanModel.PEDICNPG" FromRole="PEDIDO" ToRole="CONDICION_PAGO" />
+  </EntityType>
+  <EntityType Name="PEDIDO_LINEA">
+    <Key>
+      <PropertyRef Name="PEDIDO" />
+      <PropertyRef Name="PEDIDO_LINEA1" />
+    </Key>
+    <Property Name="PEDIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PEDIDO_LINEA1" Type="Int16" Nullable="false" />
+    <Property Name="BODEGA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOTE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="LOCALIZACION" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="ARTICULO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_ENTREGA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LINEA_USUARIO" Type="Int16" Nullable="false" />
+    <Property Name="PRECIO_UNITARIO" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_PEDIDA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_A_FACTURA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_FACTURADA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_RESERVADA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_BONIFICAD" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_CANCELADA" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_DESCUENTO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MONTO_DESCUENTO" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_DESCUENTO" Type="Decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="COMENTARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PEDIDO_LINEA_BONIF" Type="Int16" />
+    <Property Name="UNIDAD_DISTRIBUCIO" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_PROMETIDA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LINEA_ORDEN_COMPRA" Type="Int32" />
+    <Property Name="PROYECTO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FASE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CENTRO_COSTO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CUENTA_CONTABLE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RAZON_PERDIDA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_DESC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IMPUESTO1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_TARIFA1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IMPUESTO2" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_TARIFA2" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="PORC_EXONERACION" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="MONTO_EXONERACION" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="PORC_IMPUESTO1" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="PORC_IMPUESTO2" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="ES_OTRO_CARGO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ES_CANASTA_BASICA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PORC_EXONERACION2" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="MONTO_EXONERACION2" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="PORC_IMP1_BASE" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="PORC_IMP2_BASE" Type="Decimal" Precision="28" Scale="8" />
+    <NavigationProperty Name="PEDIDO1" Relationship="Self.PELIPEDI" FromRole="PEDIDO_LINEA" ToRole="PEDIDO" />
+    <NavigationProperty Name="ARTICULO1" Relationship="InsupanModel.PELIARTI" FromRole="PEDIDO_LINEA" ToRole="ARTICULO" />
+    <NavigationProperty Name="BODEGA1" Relationship="InsupanModel.PELIBODE" FromRole="PEDIDO_LINEA" ToRole="BODEGA" />
+  </EntityType>
+  <Association Name="PELIPEDI">
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+    <End Role="PEDIDO_LINEA" Type="Self.PEDIDO_LINEA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEDIDO">
+        <PropertyRef Name="PEDIDO1" />
+      </Principal>
+      <Dependent Role="PEDIDO_LINEA">
+        <PropertyRef Name="PEDIDO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InsupanEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLIENTE_RETENCION" EntityType="Self.CLIENTE_RETENCION" />
+    <EntitySet Name="EXISTENCIA_BODEGA" EntityType="Self.EXISTENCIA_BODEGA" />
+    <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" />
+    <EntitySet Name="PEDIDO_LINEA" EntityType="Self.PEDIDO_LINEA" />
+    <AssociationSet Name="PELIPEDI" Association="Self.PELIPEDI">
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+      <End Role="PEDIDO_LINEA" EntitySet="PEDIDO_LINEA" />
+    </AssociationSet>
+    <EntitySet Name="CLIENTE" EntityType="InsupanModel.CLIENTE" />
+    <AssociationSet Name="CLIENTECLICORPASOC" Association="InsupanModel.CLIENTECLICORPASOC">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="CLIENTE1" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICLIE" Association="InsupanModel.PEDICLIE">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICLIECORPORAC" Association="InsupanModel.PEDICLIECORPORAC">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICLIEDIRECCION" Association="InsupanModel.PEDICLIEDIRECCION">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICLIEORIGEN" Association="InsupanModel.PEDICLIEORIGEN">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PRETCL" Association="InsupanModel.PRETCL">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="CLIENTE_RETENCION" EntitySet="CLIENTE_RETENCION" />
+    </AssociationSet>
+    <EntitySet Name="ARTICULO" EntityType="InsupanModel.ARTICULO" />
+    <AssociationSet Name="EXBODART" Association="InsupanModel.EXBODART">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="EXISTENCIA_BODEGA" EntitySet="EXISTENCIA_BODEGA" />
+    </AssociationSet>
+    <AssociationSet Name="PELIARTI" Association="InsupanModel.PELIARTI">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="PEDIDO_LINEA" EntitySet="PEDIDO_LINEA" />
+    </AssociationSet>
+    <EntitySet Name="CUENTA_BANCARIA" EntityType="InsupanModel.CUENTA_BANCARIA" />
+    <EntitySet Name="DOCUMENTOS_CC" EntityType="InsupanModel.DOCUMENTOS_CC" />
+    <EntitySet Name="NIVEL_PRECIO" EntityType="InsupanModel.NIVEL_PRECIO" />
+    <AssociationSet Name="CLIENIPR" Association="InsupanModel.CLIENIPR">
+      <End Role="NIVEL_PRECIO" EntitySet="NIVEL_PRECIO" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="DOCCCCLI" Association="InsupanModel.DOCCCCLI">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="DOCSCCCLIORIGENCLI" Association="InsupanModel.DOCSCCCLIORIGENCLI">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="DOCSCCCLIREPORTCLI" Association="InsupanModel.DOCSCCCLIREPORTCLI">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="DOCCTABN" Association="InsupanModel.DOCCTABN">
+      <End Role="CUENTA_BANCARIA" EntitySet="CUENTA_BANCARIA" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="NIPRPEDI" Association="InsupanModel.NIPRPEDI">
+      <End Role="NIVEL_PRECIO" EntitySet="NIVEL_PRECIO" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <EntitySet Name="DEVOLUCION" EntityType="InsupanModel.DEVOLUCION" />
+    <EntitySet Name="ASIGNACION_BODEGAS" EntityType="InsupanModel.ASIGNACION_BODEGAS" />
+    <EntitySet Name="ASIGNACION_CLIENTES" EntityType="InsupanModel.ASIGNACION_CLIENTES" />
+    <EntitySet Name="BANCOS_CUENTAS" EntityType="InsupanModel.BANCOS_CUENTAS" />
+    <EntitySet Name="CARTERA_DOCUMENTOS" EntityType="InsupanModel.CARTERA_DOCUMENTOS" />
+    <EntitySet Name="CARTERA_TIPOS_DOC" EntityType="InsupanModel.CARTERA_TIPOS_DOC" />
+    <EntitySet Name="CONDICIONES_COMERCIALES" EntityType="InsupanModel.CONDICIONES_COMERCIALES" />
+    <EntitySet Name="INVENTARIO" EntityType="InsupanModel.INVENTARIO" />
+    <EntitySet Name="LISTAS_PRECIOS" EntityType="InsupanModel.LISTAS_PRECIOS" />
+    <EntitySet Name="PRODUCTOS" EntityType="InsupanModel.PRODUCTOS" />
+    <EntitySet Name="PRODUCTOS_LINEAS" EntityType="InsupanModel.PRODUCTOS_LINEAS" />
+    <EntitySet Name="PRODUCTOS_PRESENTACION" EntityType="InsupanModel.PRODUCTOS_PRESENTACION" />
+    <EntitySet Name="TIPOS_CLIENTE" EntityType="InsupanModel.TIPOS_CLIENTE" />
+    <EntitySet Name="TIPOS_IDENTIFICACION" EntityType="InsupanModel.TIPOS_IDENTIFICACION" />
+    <EntitySet Name="BODEGA" EntityType="InsupanModel.BODEGA" />
+    <AssociationSet Name="EXTBODBD" Association="InsupanModel.EXTBODBD">
+      <End Role="BODEGA" EntitySet="BODEGA" />
+      <End Role="EXISTENCIA_BODEGA" EntitySet="EXISTENCIA_BODEGA" />
+    </AssociationSet>
+    <AssociationSet Name="PEDIBODE" Association="InsupanModel.PEDIBODE">
+      <End Role="BODEGA" EntitySet="BODEGA" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PELIBODE" Association="InsupanModel.PELIBODE">
+      <End Role="BODEGA" EntitySet="BODEGA" />
+      <End Role="PEDIDO_LINEA" EntitySet="PEDIDO_LINEA" />
+    </AssociationSet>
+    <EntitySet Name="TOKEN" EntityType="InsupanModel.TOKEN" />
+    <EntitySet Name="CARGUE_DEVOLUCIONES" EntityType="InsupanModel.CARGUE_DEVOLUCIONES" />
+    <EntitySet Name="CARGUE_PEDIDOS" EntityType="InsupanModel.CARGUE_PEDIDOS" />
+    <EntitySet Name="DETALLE_DEVOLUCIONES" EntityType="InsupanModel.DETALLE_DEVOLUCIONES" />
+    <EntitySet Name="DETALLE_PEDIDOS" EntityType="InsupanModel.DETALLE_PEDIDOS" />
+    <EntitySet Name="ENCABEZADO_DEVOLUCIONES" EntityType="InsupanModel.ENCABEZADO_DEVOLUCIONES" />
+    <EntitySet Name="ENCABEZADO_PEDIDOS" EntityType="InsupanModel.ENCABEZADO_PEDIDOS" />
+    <EntitySet Name="ENCABEZADO_RECAUDOS" EntityType="InsupanModel.ENCABEZADO_RECAUDOS" />
+    <EntitySet Name="LISTA_DIF_RECAUDO" EntityType="InsupanModel.LISTA_DIF_RECAUDO" />
+    <EntitySet Name="LISTA_FACT_RECAUDO" EntityType="InsupanModel.LISTA_FACT_RECAUDO" />
+    <EntitySet Name="LISTA_PAG_RECAUDO" EntityType="InsupanModel.LISTA_PAG_RECAUDO" />
+    <EntitySet Name="CLIENTES_CONTACTOS" EntityType="InsupanModel.CLIENTES_CONTACTOS" />
+    <EntitySet Name="CLIENTES_UBICACIONES" EntityType="InsupanModel.CLIENTES_UBICACIONES" />
+    <EntitySet Name="MAESTROS_LISTAS_PRECIOS" EntityType="InsupanModel.MAESTROS_LISTAS_PRECIOS" />
+    <EntitySet Name="CLIENTES" EntityType="InsupanModel.CLIENTES" />
+    <EntitySet Name="CONDICION_PAGO" EntityType="InsupanModel.CONDICION_PAGO" />
+    <AssociationSet Name="CLICONDP" Association="InsupanModel.CLICONDP">
+      <End Role="CONDICION_PAGO" EntitySet="CONDICION_PAGO" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="DOCCCCON" Association="InsupanModel.DOCCCCON">
+      <End Role="CONDICION_PAGO" EntitySet="CONDICION_PAGO" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="NIVPRECCONDPAG" Association="InsupanModel.NIVPRECCONDPAG">
+      <End Role="CONDICION_PAGO" EntitySet="CONDICION_PAGO" />
+      <End Role="NIVEL_PRECIO" EntitySet="NIVEL_PRECIO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICNPG" Association="InsupanModel.PEDICNPG">
+      <End Role="CONDICION_PAGO" EntitySet="CONDICION_PAGO" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <EntitySet Name="ARTICULO_PRECIO" EntityType="InsupanModel.ARTICULO_PRECIO" />
+    <AssociationSet Name="ARPRARTI" Association="InsupanModel.ARPRARTI">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="ARTICULO_PRECIO" EntitySet="ARTICULO_PRECIO" />
+    </AssociationSet>
+    <EntitySet Name="CLASIFICACION" EntityType="InsupanModel.CLASIFICACION" />
+    <AssociationSet Name="ARTCLASIF4" Association="InsupanModel.ARTCLASIF4">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLASIF5" Association="InsupanModel.ARTCLASIF5">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLASIF6" Association="InsupanModel.ARTCLASIF6">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLSF1" Association="InsupanModel.ARTCLSF1">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLSF2" Association="InsupanModel.ARTCLSF2">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLSF3" Association="InsupanModel.ARTCLSF3">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <EntitySet Name="ViewAsignacion_Clientes" EntityType="InsupanModel.ViewAsignacion_Clientes" />
+    <EntitySet Name="ViewCARTERA_DOCUMENTOS" EntityType="InsupanModel.ViewCARTERA_DOCUMENTOS" />
+    <EntitySet Name="ViewCLIENTES_CONTACTOS" EntityType="InsupanModel.ViewCLIENTES_CONTACTOS" />
+    <EntitySet Name="ViewCLIENTES_UBICACIONES" EntityType="InsupanModel.ViewCLIENTES_UBICACIONES" />
+    <EntitySet Name="ViewPRODUCTOS_PRESENTACION" EntityType="InsupanModel.ViewPRODUCTOS_PRESENTACION" />
+    <EntitySet Name="ViewFACTURA_RECAUDO" EntityType="InsupanModel.ViewFACTURA_RECAUDO" />
+    <EntitySet Name="ViewPAGO_RECAUDO" EntityType="InsupanModel.ViewPAGO_RECAUDO" />
+    <EntitySet Name="ViewPRODUCTO_DEVUELTOS" EntityType="InsupanModel.ViewPRODUCTO_DEVUELTOS" />
+    <EntitySet Name="TIPO_NIT" EntityType="InsupanModel.TIPO_NIT" />
+    <EntitySet Name="IMPUESTO" EntityType="InsupanModel.IMPUESTO" />
+    <AssociationSet Name="ARTICIMP" Association="InsupanModel.ARTICIMP">
+      <End Role="IMPUESTO" EntitySet="IMPUESTO" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="CLICODIMP" Association="InsupanModel.CLICODIMP">
+      <End Role="IMPUESTO" EntitySet="IMPUESTO" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="DOCCODIMP" Association="InsupanModel.DOCCODIMP">
+      <End Role="IMPUESTO" EntitySet="IMPUESTO" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="CLIENTE1" />
+    </Key>
+    <Property Name="CLIENTE1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="DETALLE_DIRECCION" Type="Int32" />
+    <Property Name="ALIAS" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACTO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CARGO" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DIR_EMB_DEFAULT" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FAX" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CONTRIBUYENTE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_INGRESO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MULTIMONEDA" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MONEDA" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="SALDO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_CREDITO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_NOCARGOS" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="LIMITE_CREDITO" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="EXCEDER_LIMITE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_INTERES" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TASA_INTERES_MORA" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="FECHA_ULT_MORA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_ULT_MOV" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CONDICION_PAGO" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="NIVEL_PRECIO" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DESCUENTO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="MONEDA_NIVEL" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ACEPTA_BACKORDER" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PAIS" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ZONA" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="RUTA" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="VENDEDOR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="COBRADOR" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ACEPTA_FRACCIONES" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ACTIVO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EXENTO_IMPUESTOS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EXENCION_IMP1" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="EXENCION_IMP2" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COBRO_JUDICIAL" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORIA_CLIENTE" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="CLASE_ABC" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DIAS_ABASTECIMIEN" Type="Int16" Nullable="false" />
+    <Property Name="USA_TARJETA" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TARJETA_CREDITO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_TARJETA" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_VENCE_TARJ" Type="DateTime" Precision="3" />
+    <Property Name="E_MAIL" Type="String" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="REQUIERE_OC" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ES_CORPORACION" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CLI_CORPORAC_ASOC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="REGISTRARDOCSACORP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="USAR_DIREMB_CORP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="APLICAC_ABIERTAS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VERIF_LIMCRED_CORP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="USAR_DESC_CORP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DOC_A_GENERAR" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO1_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO2_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO3_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="TIENE_CONVENIO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NOTAS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DIAS_PROMED_ATRASO" Type="Int16" Nullable="false" />
+    <Property Name="RUBRO1_CLI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO2_CLI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO3_CLI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO4_CLI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO5_CLI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ASOCOBLIGCONTFACT" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO4_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO5_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO6_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO7_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO8_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO9_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO10_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="USAR_PRECIOS_CORP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="USAR_EXENCIMP_CORP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DIAS_DE_COBRO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="AJUSTE_FECHA_COBRO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="GLN" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="UBICACION" Type="String" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="CLASE_DOCUMENTO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="LOCAL" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CONTRIBUYENTE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO11_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO12_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO13_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO14_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO15_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO16_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO17_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO18_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO19_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO20_CLIENTE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="MODELO_RETENCION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ACEPTA_DOC_ELECTRONICO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CONFIRMA_DOC_ELECTRONICO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL_DOC_ELECTRONICO" Type="String" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL_PED_EDI" Type="String" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="ACEPTA_DOC_EDI" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NOTIFICAR_ERROR_EDI" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL_ERROR_PED_EDI" Type="String" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="CODIGO_IMPUESTO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DIVISION_GEOGRAFICA1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DIVISION_GEOGRAFICA2" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="REGIMEN_TRIB" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="MOROSO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MODIF_NOMB_EN_FAC" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SALDO_TRANS" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_TRANS_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_TRANS_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="PERMITE_DOC_GP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PARTICIPA_FLUJOCAJA" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CURP" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIO_CREACION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_HORA_CREACION" Type="DateTime" Precision="3" />
+    <Property Name="USUARIO_ULT_MOD" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FCH_HORA_ULT_MOD" Type="DateTime" Precision="3" />
+    <Property Name="EMAIL_DOC_ELECTRONICO_COPIA" Type="String" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="DETALLAR_KITS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="XSLT_PERSONALIZADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_ADDENDA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GEO_LATITUD" Type="Decimal" Precision="28" Scale="12" />
+    <Property Name="GEO_LONGITUD" Type="Decimal" Precision="28" Scale="12" />
+    <Property Name="DIVISION_GEOGRAFICA3" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DIVISION_GEOGRAFICA4" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="OTRAS_SENAS" Type="String" MaxLength="160" FixedLength="false" Unicode="false" />
+    <Property Name="SUBTIPODOC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="U_TIPO_RECEPTOR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="API_RECEPCION_DE" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="USA_API_RECEPCION" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="USER_API_RECEPCION" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="PASS_API_RECEPCION" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IMPUESTO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_TARIFA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="PORC_TARIFA" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TIPIFICACION_CLIENTE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="AFECTACION_IVA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="ES_EXTRANJERO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="item_hacienda" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENTE11" Relationship="InsupanModel.CLIENTECLICORPASOC" FromRole="CLIENTE" ToRole="CLIENTE1" />
+    <NavigationProperty Name="CLIENTE2" Relationship="InsupanModel.CLIENTECLICORPASOC" FromRole="CLIENTE1" ToRole="CLIENTE" />
+    <NavigationProperty Name="PEDIDO" Relationship="InsupanModel.PEDICLIE" FromRole="CLIENTE" ToRole="PEDIDO" />
+    <NavigationProperty Name="PEDIDO1" Relationship="InsupanModel.PEDICLIECORPORAC" FromRole="CLIENTE" ToRole="PEDIDO" />
+    <NavigationProperty Name="PEDIDO2" Relationship="InsupanModel.PEDICLIEDIRECCION" FromRole="CLIENTE" ToRole="PEDIDO" />
+    <NavigationProperty Name="PEDIDO3" Relationship="InsupanModel.PEDICLIEORIGEN" FromRole="CLIENTE" ToRole="PEDIDO" />
+    <NavigationProperty Name="CLIENTE_RETENCION" Relationship="InsupanModel.PRETCL" FromRole="CLIENTE" ToRole="CLIENTE_RETENCION" />
+    <NavigationProperty Name="NIVEL_PRECIO1" Relationship="InsupanModel.CLIENIPR" FromRole="CLIENTE" ToRole="NIVEL_PRECIO" />
+    <NavigationProperty Name="DOCUMENTOS_CC" Relationship="InsupanModel.DOCCCCLI" FromRole="CLIENTE" ToRole="DOCUMENTOS_CC" />
+    <NavigationProperty Name="DOCUMENTOS_CC1" Relationship="InsupanModel.DOCSCCCLIORIGENCLI" FromRole="CLIENTE" ToRole="DOCUMENTOS_CC" />
+    <NavigationProperty Name="DOCUMENTOS_CC2" Relationship="InsupanModel.DOCSCCCLIREPORTCLI" FromRole="CLIENTE" ToRole="DOCUMENTOS_CC" />
+    <NavigationProperty Name="CONDICION_PAGO1" Relationship="InsupanModel.CLICONDP" FromRole="CLIENTE" ToRole="CONDICION_PAGO" />
+    <NavigationProperty Name="IMPUESTO" Relationship="InsupanModel.CLICODIMP" FromRole="CLIENTE" ToRole="IMPUESTO" />
+  </EntityType>
+  <Association Name="CLIENTECLICORPASOC">
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="0..1" />
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE1" />
+      </Principal>
+      <Dependent Role="CLIENTE1">
+        <PropertyRef Name="CLI_CORPORAC_ASOC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICLIE">
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="InsupanModel.PEDIDO" Role="PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE1" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICLIECORPORAC">
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="InsupanModel.PEDIDO" Role="PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE1" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CLIENTE_CORPORAC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICLIEDIRECCION">
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="InsupanModel.PEDIDO" Role="PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE1" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CLIENTE_DIRECCION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICLIEORIGEN">
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="InsupanModel.PEDIDO" Role="PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE1" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CLIENTE_ORIGEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRETCL">
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="InsupanModel.CLIENTE_RETENCION" Role="CLIENTE_RETENCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE1" />
+      </Principal>
+      <Dependent Role="CLIENTE_RETENCION">
+        <PropertyRef Name="CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ARTICULO">
+    <Key>
+      <PropertyRef Name="ARTICULO1" />
+    </Key>
+    <Property Name="ARTICULO1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PLANTILLA_SERIE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="CLASIFICACION_1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CLASIFICACION_2" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CLASIFICACION_3" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CLASIFICACION_4" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CLASIFICACION_5" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CLASIFICACION_6" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FACTOR_CONVER_1" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_2" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_3" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_4" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_5" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_6" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TIPO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ORIGEN_CORP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PESO_NETO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="PESO_BRUTO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="VOLUMEN" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="BULTOS" Type="Int16" Nullable="false" />
+    <Property Name="ARTICULO_CUENTA" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="IMPUESTO" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="FACTOR_EMPAQUE" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="FACTOR_VENTA" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="EXISTENCIA_MINIMA" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="EXISTENCIA_MAXIMA" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="PUNTO_DE_REORDEN" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COSTO_FISCAL" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="COSTO_COMPARATIVO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="COSTO_PROM_LOC" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COSTO_PROM_DOL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COSTO_STD_LOC" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COSTO_STD_DOL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COSTO_ULT_LOC" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COSTO_ULT_DOL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="PRECIO_BASE_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="PRECIO_BASE_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="ULTIMA_SALIDA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ULTIMO_MOVIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ULTIMO_INGRESO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ULTIMO_INVENTARIO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CLASE_ABC" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FRECUENCIA_CONTEO" Type="Int16" Nullable="false" />
+    <Property Name="CODIGO_BARRAS_VENT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CODIGO_BARRAS_INVT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ACTIVO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="USA_LOTES" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="OBLIGA_CUARENTENA" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MIN_VIDA_COMPRA" Type="Int16" Nullable="false" />
+    <Property Name="MIN_VIDA_CONSUMO" Type="Int16" Nullable="false" />
+    <Property Name="MIN_VIDA_VENTA" Type="Int16" Nullable="false" />
+    <Property Name="VIDA_UTIL_PROM" Type="Int16" Nullable="false" />
+    <Property Name="DIAS_CUARENTENA" Type="Int16" Nullable="false" />
+    <Property Name="PROVEEDOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ARTICULO_DEL_PROV" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ORDEN_MINIMA" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="PLAZO_REABAST" Type="Int16" Nullable="false" />
+    <Property Name="LOTE_MULTIPLO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="NOTAS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UTILIZADO_MANUFACT" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIO_CREACION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FCH_HORA_CREACION" Type="DateTime" Precision="3" />
+    <Property Name="USUARIO_ULT_MODIF" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FCH_HORA_ULT_MODIF" Type="DateTime" Precision="3" />
+    <Property Name="USA_NUMEROS_SERIE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MODALIDAD_INV_FIS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_COD_BARRA_DET" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_COD_BARRA_ALM" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="USA_REGLAS_LOCALES" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="UNIDAD_ALMACEN" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="UNIDAD_EMPAQUE" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="UNIDAD_VENTA" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="PERECEDERO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="GTIN" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="MANUFACTURADOR" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="CODIGO_RETENCION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="RETENCION_VENTA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="RETENCION_COMPRA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="MODELO_RETENCION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ESTILO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TALLA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="COLOR" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_COSTO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ARTICULO_ENVASE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ES_ENVASE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="USA_CONTROL_ENVASE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="COSTO_PROM_COMPARATIVO_LOC" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COSTO_PROM_COMPARATIVO_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COSTO_PROM_ULTIMO_LOC" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="COSTO_PROM_ULTIMO_DOL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UTILIZADO_EN_CONTRATOS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VALIDA_CANT_FASE_PY" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="OBLIGA_INCLUIR_FASE_PY" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ES_IMPUESTO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="U_CLAVE_UNIDAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="U_CLAVE_PROD_SERV" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="U_CLAVE_PS_PUB" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_DOC_IVA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="NIT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CANASTA_BASICA" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ES_OTRO_CARGO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SERVICIO_MEDICO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="item_hacienda" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CODIGO_HACIENDA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ITEM_HACIENDA_COMPRA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EXISTENCIA_BODEGA" Relationship="InsupanModel.EXBODART" FromRole="ARTICULO" ToRole="EXISTENCIA_BODEGA" />
+    <NavigationProperty Name="PEDIDO_LINEA" Relationship="InsupanModel.PELIARTI" FromRole="ARTICULO" ToRole="PEDIDO_LINEA" />
+    <NavigationProperty Name="ARTICULO_PRECIO" Relationship="InsupanModel.ARPRARTI" FromRole="ARTICULO" ToRole="ARTICULO_PRECIO" />
+    <NavigationProperty Name="CLASIFICACION" Relationship="InsupanModel.ARTCLASIF4" FromRole="ARTICULO" ToRole="CLASIFICACION" />
+    <NavigationProperty Name="CLASIFICACION1" Relationship="InsupanModel.ARTCLASIF5" FromRole="ARTICULO" ToRole="CLASIFICACION" />
+    <NavigationProperty Name="CLASIFICACION2" Relationship="InsupanModel.ARTCLASIF6" FromRole="ARTICULO" ToRole="CLASIFICACION" />
+    <NavigationProperty Name="CLASIFICACION3" Relationship="InsupanModel.ARTCLSF1" FromRole="ARTICULO" ToRole="CLASIFICACION" />
+    <NavigationProperty Name="CLASIFICACION4" Relationship="InsupanModel.ARTCLSF2" FromRole="ARTICULO" ToRole="CLASIFICACION" />
+    <NavigationProperty Name="CLASIFICACION5" Relationship="InsupanModel.ARTCLSF3" FromRole="ARTICULO" ToRole="CLASIFICACION" />
+    <NavigationProperty Name="IMPUESTO1" Relationship="InsupanModel.ARTICIMP" FromRole="ARTICULO" ToRole="IMPUESTO" />
+  </EntityType>
+  <Association Name="EXBODART">
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="1" />
+    <End Type="InsupanModel.EXISTENCIA_BODEGA" Role="EXISTENCIA_BODEGA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULO">
+        <PropertyRef Name="ARTICULO1" />
+      </Principal>
+      <Dependent Role="EXISTENCIA_BODEGA">
+        <PropertyRef Name="ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PELIARTI">
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="1" />
+    <End Type="InsupanModel.PEDIDO_LINEA" Role="PEDIDO_LINEA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULO">
+        <PropertyRef Name="ARTICULO1" />
+      </Principal>
+      <Dependent Role="PEDIDO_LINEA">
+        <PropertyRef Name="ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CUENTA_BANCARIA">
+    <Key>
+      <PropertyRef Name="CUENTA_BANCO" />
+    </Key>
+    <Property Name="CUENTA_BANCO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ENTIDAD_FINANCIERA" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="MONEDA" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO2" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACTO" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CARGO" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="FORMATO" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_ULT_MOV" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SALDO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_BANCOS" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="POSICION_DE_CAJA" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_ANTERIOR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TIPO_CAMBIO_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TIPO_CAMBIO_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="ACTIVA" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ULTIMO_DEPOSITO" Type="Decimal" Nullable="false" Precision="28" Scale="0" />
+    <Property Name="ULTIMA_TEFCR" Type="Decimal" Nullable="false" Precision="28" Scale="0" />
+    <Property Name="LIMITE_SOBREGIRO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="CTR_CONTABLE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_CONTABLE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_CIERRE_DEB" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_CIERRE_DEB" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_CIERRE_CRED" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_CIERRE_CRED" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ULTIMA_NOTACR" Type="Decimal" Nullable="false" Precision="28" Scale="0" />
+    <Property Name="ULTIMO_CHEQUE" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="ULTIMO_OTROCR" Type="Decimal" Nullable="false" Precision="28" Scale="0" />
+    <Property Name="ULTIMA_TEFDB" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="ULTIMA_NOTADB" Type="Decimal" Nullable="false" Precision="28" Scale="0" />
+    <Property Name="ULTIMO_OTRODB" Type="Decimal" Nullable="false" Precision="28" Scale="0" />
+    <Property Name="ULTIMA_CONCIL" Type="Int32" />
+    <Property Name="MODO_CONCILIAR" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IDIOMA_MON_LETRAS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CRED_AJUSTE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="SUBTIPO_CRED_AJUST" Type="Int16" />
+    <Property Name="TIPO_DEB_AJUSTE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="SUBTIPO_DEB_AJUST" Type="Int16" />
+    <Property Name="PERMITE_SOBREGIRO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_AJUSTE_CRED" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FCH_HORA_CREACION" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USUARIO_CREACION" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_AJUSTE_DEB" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_GASTO_TRANSF" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_AJUSTE_DEB" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_GASTO_TRANSF" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_LIQUIDAR_CRED" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_LIQUIDAR_CRED" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_LIQUIDAR_DEB" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_LIQUIDAR_DEB" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_AJUSTE_CRED" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FCH_HORA_MODIFIC" Type="DateTime" Precision="3" />
+    <Property Name="USUARIO_MODIFIC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PERMITE_TRANSF_IC" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_TRANSF_IC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_TRANSF_IC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO1_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO2_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO3_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO4_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO5_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO6_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO7_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO8_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO9_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="RUBRO10_CTABANCO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CONSE_CHEQUE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CONSE_TEF" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CUENTA" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_DOC_GP" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_DOC_GP" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="SALDO_TRANS" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_TRANS_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_TRANS_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="PERMITE_DOC_GP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PARTICIPA_FLUJOCAJA" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_ELECTRONICA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="DOCUMENTOS_CC" Relationship="InsupanModel.DOCCTABN" FromRole="CUENTA_BANCARIA" ToRole="DOCUMENTOS_CC" />
+  </EntityType>
+  <EntityType Name="DOCUMENTOS_CC">
+    <Key>
+      <PropertyRef Name="DOCUMENTO" />
+      <PropertyRef Name="TIPO" />
+    </Key>
+    <Property Name="DOCUMENTO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="CONTRARECIBO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APLICACION" Type="String" Nullable="false" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_DOCUMENTO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MONTO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="MONTO_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="MONTO_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="MONTO_CLIENTE" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_CLIENTE" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TIPO_CAMBIO_MONEDA" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TIPO_CAMBIO_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TIPO_CAMBIO_CLIENT" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TIPO_CAMB_ACT_LOC" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TIPO_CAMB_ACT_DOL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TIPO_CAMB_ACT_CLI" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SUBTOTAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="DESCUENTO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="IMPUESTO1" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="IMPUESTO2" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="RUBRO1" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="RUBRO2" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="MONTO_RETENCION" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_RETENCION" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="DEPENDIENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_ULT_CREDITO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CARGADO_DE_FACT" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="APROBADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ASIENTO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ASIENTO_PENDIENTE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_ULT_MOD" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NOTAS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CLASE_DOCUMENTO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_VENCE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NUM_PARCIALIDADES" Type="Int16" Nullable="false" />
+    <Property Name="FECHA_REVISION" Type="DateTime" Precision="3" />
+    <Property Name="COBRADOR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIO_ULT_MOD" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CONDICION_PAGO" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="MONEDA" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_BANCARIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VENDEDOR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENTE_REPORTE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENTE_ORIGEN" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENTE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SUBTIPO" Type="Int16" />
+    <Property Name="PORC_INTCTE" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="CONTRATO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_DOC_ORIGEN" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="DOC_DOC_ORIGEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_ANUL" Type="DateTime" Precision="3" />
+    <Property Name="AUD_USUARIO_ANUL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AUD_FECHA_ANUL" Type="DateTime" Precision="3" />
+    <Property Name="NUM_DOC_CB" Type="Decimal" Precision="28" Scale="0" />
+    <Property Name="FECHA_COBRO" Type="DateTime" Precision="3" />
+    <Property Name="AUDITORIA_COBRO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_SEGUIMIENTO" Type="DateTime" Precision="3" />
+    <Property Name="OBSERVACIONES_COBRO" Type="String" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIO_APROBACION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_APROBACION" Type="DateTime" Precision="3" />
+    <Property Name="ANULADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CODIGO_IMPUESTO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PAIS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DIVISION_GEOGRAFICA1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DIVISION_GEOGRAFICA2" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BASE_IMPUESTO1" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="BASE_IMPUESTO2" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="DEPENDIENTE_GP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SALDO_TRANS" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_TRANS_LOCAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_TRANS_DOLAR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="FECHA_PROYECTADA" Type="DateTime" Precision="3" />
+    <Property Name="PORC_RECUPERACION" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TIPO_ASIENTO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PAQUETE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="SALDO_TRANS_CLI" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="DOCUMENTO_FISCAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FACTURADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="GENERA_DOC_FE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_IMPOSITIVA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_IMPOSITIVA_PORC" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_CREE1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_CREE1_PORC" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_CREE2" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TASA_CREE2_PORC" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_GAN_OCASIONAL_PORC" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="ENTIDAD_FINANCIERA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CONTRATO_AC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DOCUMENTO_GLOBAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CUENTA_ORIGEN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="USO_CFDI" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="U_CLAVE_UNIDAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="U_CLAVE_PROD_SERV" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FORMA_PAGO" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="U_TIPO_RELACION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CLAVE_REFERENCIA_DE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_REFERENCIA_DE" Type="DateTime" Precision="3" />
+    <Property Name="JUSTI_DEV_HACIEND" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_OPERACION" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="U_CLAVE_PS_PUB" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="INCOTERMS" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="CONSECUTIVO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CLAVE_DE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IMPUESTO1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_TARIFA1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IMPUESTO2" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_TARIFA2" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="ACTIVIDAD_COMERCIAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ITEM_HACIENDA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PREFIJO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_INICIO_RESOLUCION" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_FINAL_RESOLUCION" Type="DateTime" Precision="3" />
+    <Property Name="CLAVE_TECNICA" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="MATRICULA_MERCANTIL" Type="Int32" />
+    <Property Name="ES_FACTURA_REEMPLAZO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FACTURA_ORIGINAL_REEMPLAZO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_REFERENCIA_DE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CONSECUTIVO_FTC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_FTC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NIT_TRANSPORTADOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CODIGO_REFERENCIA_DE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_OC_EXENTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_CONS_REG_EXO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_IRSEDE_AGR_GAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="U_AD_WM_TIPO_NC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENTE1" Relationship="InsupanModel.DOCCCCLI" FromRole="DOCUMENTOS_CC" ToRole="CLIENTE" />
+    <NavigationProperty Name="CLIENTE2" Relationship="InsupanModel.DOCSCCCLIORIGENCLI" FromRole="DOCUMENTOS_CC" ToRole="CLIENTE" />
+    <NavigationProperty Name="CLIENTE3" Relationship="InsupanModel.DOCSCCCLIREPORTCLI" FromRole="DOCUMENTOS_CC" ToRole="CLIENTE" />
+    <NavigationProperty Name="CUENTA_BANCARIA" Relationship="InsupanModel.DOCCTABN" FromRole="DOCUMENTOS_CC" ToRole="CUENTA_BANCARIA" />
+    <NavigationProperty Name="CONDICION_PAGO1" Relationship="InsupanModel.DOCCCCON" FromRole="DOCUMENTOS_CC" ToRole="CONDICION_PAGO" />
+    <NavigationProperty Name="IMPUESTO" Relationship="InsupanModel.DOCCODIMP" FromRole="DOCUMENTOS_CC" ToRole="IMPUESTO" />
+  </EntityType>
+  <EntityType Name="NIVEL_PRECIO">
+    <Key>
+      <PropertyRef Name="NIVEL_PRECIO1" />
+      <PropertyRef Name="MONEDA" />
+    </Key>
+    <Property Name="NIVEL_PRECIO1" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="MONEDA" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CONDICION_PAGO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ESQUEMA_TRABAJO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DESCUENTOS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SUGERIR_DESCUENTO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CLIENTE" Relationship="InsupanModel.CLIENIPR" FromRole="NIVEL_PRECIO" ToRole="CLIENTE" />
+    <NavigationProperty Name="PEDIDO" Relationship="InsupanModel.NIPRPEDI" FromRole="NIVEL_PRECIO" ToRole="PEDIDO" />
+    <NavigationProperty Name="CONDICION_PAGO1" Relationship="InsupanModel.NIVPRECCONDPAG" FromRole="NIVEL_PRECIO" ToRole="CONDICION_PAGO" />
+  </EntityType>
+  <Association Name="CLIENIPR">
+    <End Type="InsupanModel.NIVEL_PRECIO" Role="NIVEL_PRECIO" Multiplicity="1" />
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NIVEL_PRECIO">
+        <PropertyRef Name="NIVEL_PRECIO1" />
+        <PropertyRef Name="MONEDA" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="NIVEL_PRECIO" />
+        <PropertyRef Name="MONEDA_NIVEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCCCCLI">
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="InsupanModel.DOCUMENTOS_CC" Role="DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE1" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCSCCCLIORIGENCLI">
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="InsupanModel.DOCUMENTOS_CC" Role="DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE1" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CLIENTE_ORIGEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCSCCCLIREPORTCLI">
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="InsupanModel.DOCUMENTOS_CC" Role="DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE1" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CLIENTE_REPORTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCCTABN">
+    <End Type="InsupanModel.CUENTA_BANCARIA" Role="CUENTA_BANCARIA" Multiplicity="0..1" />
+    <End Type="InsupanModel.DOCUMENTOS_CC" Role="DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUENTA_BANCARIA">
+        <PropertyRef Name="CUENTA_BANCO" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CTA_BANCARIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NIPRPEDI">
+    <End Type="InsupanModel.NIVEL_PRECIO" Role="NIVEL_PRECIO" Multiplicity="1" />
+    <End Type="InsupanModel.PEDIDO" Role="PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NIVEL_PRECIO">
+        <PropertyRef Name="NIVEL_PRECIO1" />
+        <PropertyRef Name="MONEDA" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="NIVEL_PRECIO" />
+        <PropertyRef Name="MONEDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DEVOLUCION">
+    <Key>
+      <PropertyRef Name="DEVOLUCION1" />
+    </Key>
+    <Property Name="DEVOLUCION1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIO_CREADO" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AJUSTE_CONFIG" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="EMBARQUE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="AUDIT_TRANS_INV" Type="Int32" />
+    <Property Name="TIPO_DEVOLUCION" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_DEVOLUCION" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AFECTA_ORDEN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DOCUMENTO_DEBITO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ASIENTO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOTAS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_DEBITO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SUBTIPO" Type="Int16" />
+    <Property Name="FECHA_DOCDEBITO" Type="DateTime" Precision="3" />
+    <Property Name="APLICACION" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_HORA_CREADO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_HORA_APLIC" Type="DateTime" Precision="3" />
+    <Property Name="FECHA_HORA_CANCELA" Type="DateTime" Precision="3" />
+    <Property Name="USUARIO_APLICADO" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIO_CANCELA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="MONEDA_DDEB" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PROVEEDOR_DDEB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TC_MONEDA_LOCAL" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="TC_MONEDA_DOLAR" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_CAI" Type="DateTime" Precision="3" />
+    <Property Name="CAI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_AFECTACION_IVA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IMPUESTO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_TARIFA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="PORC_AFECTACION_IVA" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="MontoTotalImpuestoAcreditar" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="MontoTotalDeGastoAplicable" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="MontoProporcionalidad" Type="Decimal" Precision="28" Scale="8" />
+  </EntityType>
+  <EntityType Name="ASIGNACION_BODEGAS">
+    <Key>
+      <PropertyRef Name="BODEGA_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+    </Key>
+    <Property Name="BODEGA_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ASIGNACION_CLIENTES">
+    <Key>
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="UBICACION_ID" />
+    </Key>
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UBICACION_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BANCOS_CUENTAS">
+    <Key>
+      <PropertyRef Name="CUENTA_ID" />
+    </Key>
+    <Property Name="CUENTA_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BANCO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION_BANCO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_CUENTA" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CARTERA_DOCUMENTOS">
+    <Key>
+      <PropertyRef Name="DOCUMENTO_ID" />
+      <PropertyRef Name="TIPO_DOCUMENTO" />
+    </Key>
+    <Property Name="DOCUMENTO_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_DOCUMENTO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_REFERENCIA" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="DOC_REFERENCIA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_DOCUMENTO" Type="DateTime" Precision="0" />
+    <Property Name="FECHA_BASE" Type="DateTime" Precision="0" />
+    <Property Name="FECHA_VENCIMIENTO" Type="DateTime" Precision="0" />
+    <Property Name="VALOR_BASE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_TOTAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SALDO_PENDIENTE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CONDICION_COMERCIAL_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PORCENTAJE_DESCUENTO1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORCENTAJE_DESCUENTO2" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORCENTAJE_DESCUENTO3" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORCENTAJE_DESCUENTO4" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DIAS_PORC_DSCTO1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DIAS_PORC_DSCTO2" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DIAS_PORC_DSCTO3" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DIAS_PORC_DSCTO4" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MIN1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MAX1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MIN2" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MAX2" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MIN3" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MAX3" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MIN4" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MAX4" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_IVA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OBSERVACIONES" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FILTRO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FILTRO2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FILTRO3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CARTERA_TIPOS_DOC">
+    <Key>
+      <PropertyRef Name="TIPO_DOCUMENTO_ID" />
+    </Key>
+    <Property Name="TIPO_DOCUMENTO_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="OPERADOR" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IDENTIFICACION_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NIT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RAZON_SOCIAL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CIIU" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CLIENTE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="LISTA_PRECIOS_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_PERSONA_ID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CONDICION_COMERCIAL_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CUPO_CREDITO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="BLOQUEO_PEDIDOS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PED_DIAS_DESPACHO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PED_VALOR_MINIMO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ETAPA_ACTUAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_VENTA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="PORC_RETEFUENTE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO4" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO5" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO6" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO7" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO8" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO9" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO10" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CLASE_CLIENTE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_CREACION_ERP" Type="DateTime" Precision="3" />
+    <Property Name="PORC_RETEICA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_CREE" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="CONDICIONES_COMERCIALES">
+    <Key>
+      <PropertyRef Name="CONDICION_COMERCIAL_ID" />
+    </Key>
+    <Property Name="CONDICION_COMERCIAL_ID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DIAS_VENCIMIENTO_PED" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="INVENTARIO">
+    <Key>
+      <PropertyRef Name="BODEGA_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+    </Key>
+    <Property Name="BODEGA_ID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCTO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="LISTAS_PRECIOS">
+    <Key>
+      <PropertyRef Name="LISTA_PRECIOS_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+    </Key>
+    <Property Name="LISTA_PRECIOS_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCTO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR_PRODUCTO" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="DESCUENTO" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PRODUCTOS">
+    <Key>
+      <PropertyRef Name="PRODUCTO_ID" />
+    </Key>
+    <Property Name="PRODUCTO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LINEA_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRESENTACION_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_PRODUCTO" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR_PORCENTAJE_IVA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ORDEN" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="UNIDADES_BASE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="COSTO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PRECIO_MINIMO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO9" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO10" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PRODUCTOS_LINEAS">
+    <Key>
+      <PropertyRef Name="LINEA_ID" />
+    </Key>
+    <Property Name="LINEA_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GRUPO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DESCUENTO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PRODUCTO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRESENTACION_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_PRESENTACION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CONTENIDO_UNIDADES_BASE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PRECIO_MINIMO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FACTOR_CONV_PUNTOS" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FACTOR_CONV_MEDIDA_ESTANDAR" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PRODUCTOS_PRESENTACION">
+    <Key>
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+    </Key>
+    <Property Name="PRODUCTO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRESENTACION_ID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_PRESENTACION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CONTENIDO_UNIDADES_BASE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FACTOR_CONV_PUNTOS" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FACTOR_CONV_MEDIDA_ESTANDAR" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TIPOS_CLIENTE">
+    <Key>
+      <PropertyRef Name="TIPO_CLIENTE_ID" />
+    </Key>
+    <Property Name="TIPO_CLIENTE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DESCUENTO_COMERCIAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DESCUENTO_FINANCIERO1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DESCUENTO_FINANCIERO2" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DESCUENTO_FINANCIERO3" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TIPOS_IDENTIFICACION">
+    <Key>
+      <PropertyRef Name="TIPO_IDENTIFICACION_ID" />
+    </Key>
+    <Property Name="TIPO_IDENTIFICACION_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BODEGA">
+    <Key>
+      <PropertyRef Name="BODEGA1" />
+    </Key>
+    <Property Name="BODEGA1" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="CONSEC_TRASLADOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="U_SUCURSAL" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="U_COORDINADAS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EXISTENCIA_BODEGA" Relationship="InsupanModel.EXTBODBD" FromRole="BODEGA" ToRole="EXISTENCIA_BODEGA" />
+    <NavigationProperty Name="PEDIDO" Relationship="InsupanModel.PEDIBODE" FromRole="BODEGA" ToRole="PEDIDO" />
+    <NavigationProperty Name="PEDIDO_LINEA" Relationship="InsupanModel.PELIBODE" FromRole="BODEGA" ToRole="PEDIDO_LINEA" />
+  </EntityType>
+  <Association Name="EXTBODBD">
+    <End Type="InsupanModel.BODEGA" Role="BODEGA" Multiplicity="1" />
+    <End Type="InsupanModel.EXISTENCIA_BODEGA" Role="EXISTENCIA_BODEGA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BODEGA">
+        <PropertyRef Name="BODEGA1" />
+      </Principal>
+      <Dependent Role="EXISTENCIA_BODEGA">
+        <PropertyRef Name="BODEGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDIBODE">
+    <End Type="InsupanModel.BODEGA" Role="BODEGA" Multiplicity="1" />
+    <End Type="InsupanModel.PEDIDO" Role="PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BODEGA">
+        <PropertyRef Name="BODEGA1" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="BODEGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PELIBODE">
+    <End Type="InsupanModel.BODEGA" Role="BODEGA" Multiplicity="1" />
+    <End Type="InsupanModel.PEDIDO_LINEA" Role="PEDIDO_LINEA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BODEGA">
+        <PropertyRef Name="BODEGA1" />
+      </Principal>
+      <Dependent Role="PEDIDO_LINEA">
+        <PropertyRef Name="BODEGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TOKEN">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Token1" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Token1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CARGUE_DEVOLUCIONES">
+    <Key>
+      <PropertyRef Name="DEVOLUCION_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+    </Key>
+    <Property Name="DEVOLUCION_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_ERP" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ESTADO_ERP" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="DOC_REFERENCIA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_NOTA_CREDITO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CARGUE_PEDIDOS">
+    <Key>
+      <PropertyRef Name="PEDIDO_ID" />
+    </Key>
+    <Property Name="PEDIDO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_ERP" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ESTADO_ERP" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_DEVOLUCIONES">
+    <Key>
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="DEVOLUCION_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+    </Key>
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DEVOLUCION_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCTO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRESENTACION_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="VALOR" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FECHA_VENCIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LOTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OBSERVACIONES" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MOTIVO_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO_PRODUCTO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_PEDIDOS">
+    <Key>
+      <PropertyRef Name="PEDIDO_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+    </Key>
+    <Property Name="PEDIDO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCTO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRESENTACION_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CANTIDAD_UNIDADES_BASE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CANTIDAD_PRESENTACION" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PRECIO_BASE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_BRUTO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TIPO_DESCUENTO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DESCUENTO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="IVA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SUBTOTAL_SIN_IVA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="OBSERVACIONES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BODEGA_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ENCABEZADO_DEVOLUCIONES">
+    <Key>
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="DEVOLUCION_ID" />
+    </Key>
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DEVOLUCION_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CLIENTE_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MOTIVO_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="OBSERVACIONES" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR_DEVOLUCION" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ENCABEZADO_PEDIDOS">
+    <Key>
+      <PropertyRef Name="PEDIDO_ID" />
+    </Key>
+    <Property Name="PEDIDO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FACTURA_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA" Type="DateTime" Precision="0" />
+    <Property Name="HORA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION_DESPACHO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR_BRUTO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_DESCUENTO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OTROS_DESCUENTO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_IVA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_NETO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_TOTAL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OBSERVACIONES" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MOTIVO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_ENTREGA" Type="DateTime" Precision="0" />
+    <Property Name="TIPO_FACTURA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO9" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO10" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_PAGO" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR_FLETE" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ENCABEZADO_RECAUDOS">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PREIMPRESO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA" Type="DateTime" Precision="0" />
+    <Property Name="CLIENTE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TOTAL_EFECTIVO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TOTAL_CHEQUE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TOTAL_CONSIGNACION" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TOTAL_RECAUDO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OBSERVACIONES" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO_RECAUDO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NUM_COMPROB_RETENCION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_COMPROB_RETENCION" Type="DateTime" Precision="0" />
+    <Property Name="VALOR_COMPROB_RETENCION" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="LISTA_DIF_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+      <PropertyRef Name="FACTURA_ID" />
+      <PropertyRef Name="DIFERENCIA_ID" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FACTURA_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DIFERENCIA_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR_DIFERENCIA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OBSERVACIONES" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DATO_COMPLEMENTARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LISTA_FACT_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+      <PropertyRef Name="FACTURA_ID" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FACTURA_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SALDO_ANTERIOR" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_PAGO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_DESCUENTO_FINANCIERO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_FINANCIERO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_RETEFUENTE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_RETEFUENTE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_RETEICA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_RETEICA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_CREE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VALOR_CREE" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="LISTA_PAG_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_PAGO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR_PAGO" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="BANCO_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_DOCUMENTO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_CUENTA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_CHEQUE" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="CLIENTES_CONTACTOS">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="UBICACION_ID" />
+      <PropertyRef Name="CONTACTO_ID" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UBICACION_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACTO_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CONTACTO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_CONTACTO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO1" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO2" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CLIENTES_UBICACIONES">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="UBICACION_ID" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UBICACION_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_UBICACION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PAIS_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DEPARTAMENTO_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CIUDAD_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ZONA_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BARRIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LATITUD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="LONGITUD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ES_PUNTO_VISITA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ES_PUNTO_ENVIO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MAESTROS_LISTAS_PRECIOS">
+    <Key>
+      <PropertyRef Name="LISTA_PRECIOS_ID" />
+    </Key>
+    <Property Name="LISTA_PRECIOS_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CLASE_CLIENTE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LISTA_GENERICA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CLIENTES">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IDENTIFICACION_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NIT" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RAZON_SOCIAL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CIIU" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CLIENTE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="LISTA_PRECIOS_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_PERSONA_ID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CONDICION_COMERCIAL_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CUPO_CREDITO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="BLOQUEO_PEDIDOS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PED_DIAS_DESPACHO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PED_VALOR_MINIMO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ETAPA_ACTUAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_VENTA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="PORC_RETEFUENTE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO4" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO5" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO6" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO7" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO8" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO0" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO10" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CLASE_CLIENTE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_CREACION_ERP" Type="DateTime" Precision="3" />
+    <Property Name="PORC_RETEICA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PORC_CREE" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="CONDICION_PAGO">
+    <Key>
+      <PropertyRef Name="CONDICION_PAGO1" />
+    </Key>
+    <Property Name="CONDICION_PAGO1" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="DIAS_NETO" Type="Int32" Nullable="false" />
+    <Property Name="PAGOS_PARCIALES" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DESCUENTO_CONTADO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="TIPO_CONDPAGO" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="PLAZO_CONDPAGO" Type="Int32" />
+    <Property Name="TIPO_DIFERIDO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="USA_DIFERIDO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="U_METODO_PAGO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="U_FORMA_PAGO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="U_PLAZO_PAGO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CONDICION_VENTA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENTE" Relationship="InsupanModel.CLICONDP" FromRole="CONDICION_PAGO" ToRole="CLIENTE" />
+    <NavigationProperty Name="DOCUMENTOS_CC" Relationship="InsupanModel.DOCCCCON" FromRole="CONDICION_PAGO" ToRole="DOCUMENTOS_CC" />
+    <NavigationProperty Name="NIVEL_PRECIO" Relationship="InsupanModel.NIVPRECCONDPAG" FromRole="CONDICION_PAGO" ToRole="NIVEL_PRECIO" />
+    <NavigationProperty Name="PEDIDO" Relationship="InsupanModel.PEDICNPG" FromRole="CONDICION_PAGO" ToRole="PEDIDO" />
+  </EntityType>
+  <Association Name="CLICONDP">
+    <End Type="InsupanModel.CONDICION_PAGO" Role="CONDICION_PAGO" Multiplicity="1" />
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDICION_PAGO">
+        <PropertyRef Name="CONDICION_PAGO1" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCCCCON">
+    <End Type="InsupanModel.CONDICION_PAGO" Role="CONDICION_PAGO" Multiplicity="1" />
+    <End Type="InsupanModel.DOCUMENTOS_CC" Role="DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDICION_PAGO">
+        <PropertyRef Name="CONDICION_PAGO1" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NIVPRECCONDPAG">
+    <End Type="InsupanModel.CONDICION_PAGO" Role="CONDICION_PAGO" Multiplicity="0..1" />
+    <End Type="InsupanModel.NIVEL_PRECIO" Role="NIVEL_PRECIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDICION_PAGO">
+        <PropertyRef Name="CONDICION_PAGO1" />
+      </Principal>
+      <Dependent Role="NIVEL_PRECIO">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICNPG">
+    <End Type="InsupanModel.CONDICION_PAGO" Role="CONDICION_PAGO" Multiplicity="1" />
+    <End Type="InsupanModel.PEDIDO" Role="PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDICION_PAGO">
+        <PropertyRef Name="CONDICION_PAGO1" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ARTICULO_PRECIO">
+    <Key>
+      <PropertyRef Name="NIVEL_PRECIO" />
+      <PropertyRef Name="MONEDA" />
+      <PropertyRef Name="VERSION" />
+      <PropertyRef Name="ARTICULO" />
+      <PropertyRef Name="VERSION_ARTICULO" />
+    </Key>
+    <Property Name="NIVEL_PRECIO" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="MONEDA" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VERSION" Type="Int32" Nullable="false" />
+    <Property Name="ARTICULO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VERSION_ARTICULO" Type="Int32" Nullable="false" />
+    <Property Name="PRECIO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="ESQUEMA_TRABAJO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MARGEN_MULR" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="MARGEN_UTILIDAD" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_FIN" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_ULT_MODIF" Type="DateTime" Precision="3" />
+    <Property Name="USUARIO_ULT_MODIF" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="MARGEN_UTILIDAD_MIN" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ARTICULO1" Relationship="InsupanModel.ARPRARTI" FromRole="ARTICULO_PRECIO" ToRole="ARTICULO" />
+  </EntityType>
+  <Association Name="ARPRARTI">
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="1" />
+    <End Type="InsupanModel.ARTICULO_PRECIO" Role="ARTICULO_PRECIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULO">
+        <PropertyRef Name="ARTICULO1" />
+      </Principal>
+      <Dependent Role="ARTICULO_PRECIO">
+        <PropertyRef Name="ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CLASIFICACION">
+    <Key>
+      <PropertyRef Name="CLASIFICACION1" />
+    </Key>
+    <Property Name="CLASIFICACION1" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="AGRUPACION" Type="Int16" Nullable="false" />
+    <Property Name="USA_NUMEROS_SERIE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PLANTILLA_SERIE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="APORTE_CODIGO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CODIGO_BARRAS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="UNIDAD_MEDIDA" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ARTICULO" Relationship="InsupanModel.ARTCLASIF4" FromRole="CLASIFICACION" ToRole="ARTICULO" />
+    <NavigationProperty Name="ARTICULO1" Relationship="InsupanModel.ARTCLASIF5" FromRole="CLASIFICACION" ToRole="ARTICULO" />
+    <NavigationProperty Name="ARTICULO2" Relationship="InsupanModel.ARTCLASIF6" FromRole="CLASIFICACION" ToRole="ARTICULO" />
+    <NavigationProperty Name="ARTICULO3" Relationship="InsupanModel.ARTCLSF1" FromRole="CLASIFICACION" ToRole="ARTICULO" />
+    <NavigationProperty Name="ARTICULO4" Relationship="InsupanModel.ARTCLSF2" FromRole="CLASIFICACION" ToRole="ARTICULO" />
+    <NavigationProperty Name="ARTICULO5" Relationship="InsupanModel.ARTCLSF3" FromRole="CLASIFICACION" ToRole="ARTICULO" />
+  </EntityType>
+  <Association Name="ARTCLASIF4">
+    <End Type="InsupanModel.CLASIFICACION" Role="CLASIFICACION" Multiplicity="0..1" />
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION1" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_4" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLASIF5">
+    <End Type="InsupanModel.CLASIFICACION" Role="CLASIFICACION" Multiplicity="0..1" />
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION1" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_5" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLASIF6">
+    <End Type="InsupanModel.CLASIFICACION" Role="CLASIFICACION" Multiplicity="0..1" />
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION1" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_6" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLSF1">
+    <End Type="InsupanModel.CLASIFICACION" Role="CLASIFICACION" Multiplicity="0..1" />
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION1" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLSF2">
+    <End Type="InsupanModel.CLASIFICACION" Role="CLASIFICACION" Multiplicity="0..1" />
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION1" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLSF3">
+    <End Type="InsupanModel.CLASIFICACION" Role="CLASIFICACION" Multiplicity="0..1" />
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION1" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ViewAsignacion_Clientes">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="UBICACION_ID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ViewCARTERA_DOCUMENTOS">
+    <Key>
+      <PropertyRef Name="DOCUMENTO" />
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="TIPO" />
+      <PropertyRef Name="FECHA_DOCUMENTO" />
+      <PropertyRef Name="FECHA_BASE" />
+      <PropertyRef Name="FECHA_VENCIMIENTO" />
+      <PropertyRef Name="VALOR_BASE" />
+      <PropertyRef Name="VALOR_TOTAL" />
+      <PropertyRef Name="SALDO_PENDIENTE" />
+      <PropertyRef Name="CONDICIONES_COMERCIALES" />
+      <PropertyRef Name="PORCENTAJE_DESCUENTO1" />
+      <PropertyRef Name="VALOR_IVA" />
+    </Key>
+    <Property Name="DOCUMENTO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_REFERENCIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOCUMENTO_GLOBAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_DOCUMENTO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_BASE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_VENCIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VALOR_BASE" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="VALOR_TOTAL" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="SALDO_PENDIENTE" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="CONDICIONES_COMERCIALES" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PORCENTAJE_DESCUENTO1" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="VALOR_IVA" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ViewCLIENTES_CONTACTOS">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="CONTACTO_ID" />
+      <PropertyRef Name="NOMBRE" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UBICACION_ID" Type="String" MaxLength="249" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACTO_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="249" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ViewCLIENTES_UBICACIONES">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="UBICACION_ID" />
+      <PropertyRef Name="NOMBRE_UBICACION" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UBICACION_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_UBICACION" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ViewPRODUCTOS_PRESENTACION">
+    <Key>
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+      <PropertyRef Name="NOMBRE_PRESENTACION" />
+    </Key>
+    <Property Name="PRODUCTO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRESENTACION_ID" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_PRESENTACION" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="CONTENIDO_UNIDADES_BASE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO2" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO3" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CAMPO4" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ViewFACTURA_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+      <PropertyRef Name="FACTURA_ID" />
+      <PropertyRef Name="SALDO_ANTERIOR" />
+      <PropertyRef Name="VALOR_PAGO" />
+      <PropertyRef Name="VALOR_DESCUENTO_FINANCIERO" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FACTURA_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SALDO_ANTERIOR" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="VALOR_PAGO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="VALOR_DESCUENTO_FINANCIERO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+  </EntityType>
+  <EntityType Name="ViewPAGO_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+      <PropertyRef Name="TIPO_PAGO" />
+      <PropertyRef Name="VALOR_PAGADO" />
+      <PropertyRef Name="FECHA_DOCUMENTO" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_PAGO" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR_PAGADO" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="BANCO_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_DOCUMENTO" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ViewPRODUCTO_DEVUELTOS">
+    <Key>
+      <PropertyRef Name="DEVOLUCION_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+      <PropertyRef Name="CANTIDAD" />
+    </Key>
+    <Property Name="DEVOLUCION_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ASESOR_ID" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCTO_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRESENTACION_ID" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="CANTIDAD" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+  </EntityType>
+  <EntityType Name="TIPO_NIT">
+    <Key>
+      <PropertyRef Name="TIPO" />
+    </Key>
+    <Property Name="TIPO" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="MASCARA" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="U_TIPO_DOCUMENTO_IDENTIDAD" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="IMPUESTO">
+    <Key>
+      <PropertyRef Name="IMPUESTO1" />
+    </Key>
+    <Property Name="IMPUESTO1" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="IMPUESTO11" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="IMPUESTO2" Type="Decimal" Nullable="false" Precision="28" Scale="8" />
+    <Property Name="USA_IMPUESTO2_CANTIDAD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IMPUESTO2_CANTIDAD" Type="Decimal" Precision="28" Scale="8" />
+    <Property Name="CTR_IMP1_GEN" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP1_GEN" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_IMP2_GEN" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP2_GEN" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_IMP1_GEN_VTS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP1_GEN_VTS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_IMP2_GEN_VTS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP2_GEN_VTS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_IMP1_DESC_CMPS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP1_DESC_CMPS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_IMP2_DESC_CMPS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP2_DESC_CMPS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_IMP1_DEV_CMPS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP1_DEV_CMPS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_IMP2_DEV_CMPS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP2_DEV_CMPS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_IMP1_DEV_VTS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP1_DEV_VTS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTR_IMP2_DEV_VTS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CTA_IMP2_DEV_VTS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CONTAB_IMP1" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_CONTAB_IMP2" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CONTAB_DEV_IMP1" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CONTAB_DEV_IMP2" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CALCULO_IMP2" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NoteExistsFlag" Type="Byte" Nullable="false" />
+    <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RowPointer" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="U_IMPUESTO1_SAT" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="U_IMPUESTO2_SAT" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IMPUESTO1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_IMPUESTO2" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="U_IMPUESTO" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="U_IMPUESTO2" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_TARIFA1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_TARIFA2" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="U_IMPUESTO_EXCLUIDO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ARTICULO" Relationship="InsupanModel.ARTICIMP" FromRole="IMPUESTO" ToRole="ARTICULO" />
+    <NavigationProperty Name="CLIENTE" Relationship="InsupanModel.CLICODIMP" FromRole="IMPUESTO" ToRole="CLIENTE" />
+    <NavigationProperty Name="DOCUMENTOS_CC" Relationship="InsupanModel.DOCCODIMP" FromRole="IMPUESTO" ToRole="DOCUMENTOS_CC" />
+  </EntityType>
+  <Association Name="ARTICIMP">
+    <End Type="InsupanModel.IMPUESTO" Role="IMPUESTO" Multiplicity="1" />
+    <End Type="InsupanModel.ARTICULO" Role="ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IMPUESTO">
+        <PropertyRef Name="IMPUESTO1" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="IMPUESTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CLICODIMP">
+    <End Type="InsupanModel.IMPUESTO" Role="IMPUESTO" Multiplicity="0..1" />
+    <End Type="InsupanModel.CLIENTE" Role="CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IMPUESTO">
+        <PropertyRef Name="IMPUESTO1" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="CODIGO_IMPUESTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCCODIMP">
+    <End Type="InsupanModel.IMPUESTO" Role="IMPUESTO" Multiplicity="0..1" />
+    <End Type="InsupanModel.DOCUMENTOS_CC" Role="DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IMPUESTO">
+        <PropertyRef Name="IMPUESTO1" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CODIGO_IMPUESTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="900cbb3af3c0463191cce6a380c69060" Name="Diagram1" ZoomLevel="28">
+        <EntityTypeShape EntityType="InsupanModel.CLIENTE_RETENCION" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsupanModel.EXISTENCIA_BODEGA" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsupanModel.PEDIDO" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InsupanModel.PEDIDO_LINEA" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <AssociationConnector Association="InsupanModel.PELIPEDI" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="InsupanModel.CLIENTE" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="InsupanModel.CLIENTECLICORPASOC" />
+        <AssociationConnector Association="InsupanModel.PEDICLIE" />
+        <AssociationConnector Association="InsupanModel.PEDICLIECORPORAC" />
+        <AssociationConnector Association="InsupanModel.PEDICLIEDIRECCION" />
+        <AssociationConnector Association="InsupanModel.PEDICLIEORIGEN" />
+        <AssociationConnector Association="InsupanModel.PRETCL" />
+        <EntityTypeShape EntityType="InsupanModel.ARTICULO" Width="1.5" PointX="0.75" PointY="2.875" />
+        <AssociationConnector Association="InsupanModel.EXBODART" />
+        <AssociationConnector Association="InsupanModel.PELIARTI" />
+        <EntityTypeShape EntityType="InsupanModel.CUENTA_BANCARIA" Width="1.5" PointX="8" PointY="28.875" />
+        <EntityTypeShape EntityType="InsupanModel.DOCUMENTOS_CC" Width="1.5" PointX="10.25" PointY="6.75" />
+        <EntityTypeShape EntityType="InsupanModel.NIVEL_PRECIO" Width="1.5" PointX="0.75" PointY="19.5" />
+        <AssociationConnector Association="InsupanModel.CLIENIPR" />
+        <AssociationConnector Association="InsupanModel.DOCCCCLI" />
+        <AssociationConnector Association="InsupanModel.DOCSCCCLIORIGENCLI" />
+        <AssociationConnector Association="InsupanModel.DOCSCCCLIREPORTCLI" />
+        <AssociationConnector Association="InsupanModel.DOCCTABN" />
+        <AssociationConnector Association="InsupanModel.NIPRPEDI" />
+        <EntityTypeShape EntityType="InsupanModel.DEVOLUCION" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="InsupanModel.ASIGNACION_BODEGAS" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InsupanModel.ASIGNACION_CLIENTES" Width="1.5" PointX="8.375" PointY="3.75" />
+        <EntityTypeShape EntityType="InsupanModel.BANCOS_CUENTAS" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InsupanModel.CARTERA_DOCUMENTOS" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InsupanModel.CARTERA_TIPOS_DOC" Width="1.5" PointX="12.375" PointY="10.75" />
+        <EntityTypeShape EntityType="InsupanModel.CONDICIONES_COMERCIALES" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InsupanModel.INVENTARIO" Width="1.5" PointX="14.375" PointY="3.75" />
+        <EntityTypeShape EntityType="InsupanModel.LISTAS_PRECIOS" Width="1.5" PointX="14.375" PointY="6.75" />
+        <EntityTypeShape EntityType="InsupanModel.PRODUCTOS" Width="1.5" PointX="14.375" PointY="9.75" />
+        <EntityTypeShape EntityType="InsupanModel.PRODUCTOS_LINEAS" Width="1.5" PointX="14.375" PointY="15.75" />
+        <EntityTypeShape EntityType="InsupanModel.PRODUCTOS_PRESENTACION" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InsupanModel.TIPOS_CLIENTE" Width="1.5" PointX="16.375" PointY="4.75" />
+        <EntityTypeShape EntityType="InsupanModel.TIPOS_IDENTIFICACION" Width="1.5" PointX="16.375" PointY="7.75" />
+        <EntityTypeShape EntityType="InsupanModel.BODEGA" Width="1.5" PointX="0.75" PointY="14.375" />
+        <AssociationConnector Association="InsupanModel.EXTBODBD" />
+        <AssociationConnector Association="InsupanModel.PEDIBODE" />
+        <AssociationConnector Association="InsupanModel.PELIBODE" />
+        <EntityTypeShape EntityType="InsupanModel.TOKEN" Width="1.5" PointX="16.375" PointY="10.75" />
+        <EntityTypeShape EntityType="InsupanModel.CARGUE_DEVOLUCIONES" Width="1.5" PointX="16.375" PointY="13.75" />
+        <EntityTypeShape EntityType="InsupanModel.CARGUE_PEDIDOS" Width="1.5" PointX="16.375" PointY="16.75" />
+        <EntityTypeShape EntityType="InsupanModel.DETALLE_DEVOLUCIONES" Width="1.5" PointX="18.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InsupanModel.DETALLE_PEDIDOS" Width="1.5" PointX="18.375" PointY="4.75" />
+        <EntityTypeShape EntityType="InsupanModel.ENCABEZADO_DEVOLUCIONES" Width="1.5" PointX="7.375" PointY="18.75" />
+        <EntityTypeShape EntityType="InsupanModel.ENCABEZADO_PEDIDOS" Width="1.5" PointX="18.375" PointY="9.75" />
+        <EntityTypeShape EntityType="InsupanModel.ENCABEZADO_RECAUDOS" Width="1.5" PointX="18.375" PointY="17.75" />
+        <EntityTypeShape EntityType="InsupanModel.LISTA_DIF_RECAUDO" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InsupanModel.LISTA_FACT_RECAUDO" Width="1.5" PointX="20.375" PointY="4.75" />
+        <EntityTypeShape EntityType="InsupanModel.LISTA_PAG_RECAUDO" Width="1.5" PointX="20.375" PointY="9.75" />
+        <EntityTypeShape EntityType="InsupanModel.CLIENTES_CONTACTOS" Width="1.5" PointX="12.375" PointY="20.75" />
+        <EntityTypeShape EntityType="InsupanModel.CLIENTES_UBICACIONES" Width="1.5" PointX="20.375" PointY="13.75" />
+        <EntityTypeShape EntityType="InsupanModel.MAESTROS_LISTAS_PRECIOS" Width="1.5" PointX="14.375" PointY="20.75" />
+        <EntityTypeShape EntityType="InsupanModel.CLIENTES" Width="1.5" PointX="20.375" PointY="18.75" />
+        <EntityTypeShape EntityType="InsupanModel.CONDICION_PAGO" Width="1.5" PointX="0.75" PointY="18.875" />
+        <AssociationConnector Association="InsupanModel.CLICONDP" />
+        <AssociationConnector Association="InsupanModel.DOCCCCON" />
+        <AssociationConnector Association="InsupanModel.NIVPRECCONDPAG" />
+        <AssociationConnector Association="InsupanModel.PEDICNPG" />
+        <EntityTypeShape EntityType="InsupanModel.ARTICULO_PRECIO" Width="1.5" PointX="3" PointY="39.875" />
+        <AssociationConnector Association="InsupanModel.ARPRARTI" />
+        <EntityTypeShape EntityType="InsupanModel.CLASIFICACION" Width="1.5" PointX="0.75" PointY="37.625" />
+        <AssociationConnector Association="InsupanModel.ARTCLASIF4" />
+        <AssociationConnector Association="InsupanModel.ARTCLASIF5" />
+        <AssociationConnector Association="InsupanModel.ARTCLASIF6" />
+        <AssociationConnector Association="InsupanModel.ARTCLSF1" />
+        <AssociationConnector Association="InsupanModel.ARTCLSF2" />
+        <AssociationConnector Association="InsupanModel.ARTCLSF3" />
+        <EntityTypeShape EntityType="InsupanModel.ViewAsignacion_Clientes" Width="1.5" PointX="22.375" PointY="0.75" />
+        <EntityTypeShape EntityType="InsupanModel.ViewCARTERA_DOCUMENTOS" Width="1.5" PointX="22.375" PointY="3.75" />
+        <EntityTypeShape EntityType="InsupanModel.ViewCLIENTES_CONTACTOS" Width="1.5" PointX="7.375" PointY="22.75" />
+        <EntityTypeShape EntityType="InsupanModel.ViewCLIENTES_UBICACIONES" Width="1.5" PointX="22.375" PointY="8.75" />
+        <EntityTypeShape EntityType="InsupanModel.ViewPRODUCTOS_PRESENTACION" Width="1.5" PointX="22.375" PointY="11.75" />
+        <EntityTypeShape EntityType="InsupanModel.ViewFACTURA_RECAUDO" Width="1.5" PointX="22.375" PointY="15.75" />
+        <EntityTypeShape EntityType="InsupanModel.ViewPAGO_RECAUDO" Width="1.5" PointX="16.375" PointY="22.75" />
+        <EntityTypeShape EntityType="InsupanModel.ViewPRODUCTO_DEVUELTOS" Width="1.5" PointX="22.375" PointY="18.75" />
+        <EntityTypeShape EntityType="InsupanModel.TIPO_NIT" Width="1.5" PointX="22.375" PointY="21.75" />
+        <EntityTypeShape EntityType="InsupanModel.IMPUESTO" Width="1.5" PointX="24.75" PointY="1.375" />
+        <AssociationConnector Association="InsupanModel.ARTICIMP" />
+        <AssociationConnector Association="InsupanModel.CLICODIMP" />
+        <AssociationConnector Association="InsupanModel.DOCCODIMP" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

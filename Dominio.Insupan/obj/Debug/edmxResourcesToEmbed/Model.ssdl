@@ -1,0 +1,2255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InsupanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CARGUE_DEVOLUCIONES">
+    <Key>
+      <PropertyRef Name="DEVOLUCION_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+    </Key>
+    <Property Name="DEVOLUCION_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FECHA_ERP" Type="datetime" Nullable="false" />
+    <Property Name="ESTADO_ERP" Type="varchar" MaxLength="1000" />
+    <Property Name="DOC_REFERENCIA" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NUMERO_NOTA_CREDITO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CARGUE_PEDIDOS">
+    <Key>
+      <PropertyRef Name="PEDIDO_ID" />
+    </Key>
+    <Property Name="PEDIDO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FECHA_ERP" Type="datetime" Nullable="false" />
+    <Property Name="ESTADO_ERP" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="ARTICULO">
+    <Key>
+      <PropertyRef Name="ARTICULO" />
+    </Key>
+    <Property Name="ARTICULO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PLANTILLA_SERIE" Type="varchar" MaxLength="4" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="254" Nullable="false" />
+    <Property Name="CLASIFICACION_1" Type="varchar" MaxLength="12" />
+    <Property Name="CLASIFICACION_2" Type="varchar" MaxLength="12" />
+    <Property Name="CLASIFICACION_3" Type="varchar" MaxLength="12" />
+    <Property Name="CLASIFICACION_4" Type="varchar" MaxLength="12" />
+    <Property Name="CLASIFICACION_5" Type="varchar" MaxLength="12" />
+    <Property Name="CLASIFICACION_6" Type="varchar" MaxLength="12" />
+    <Property Name="FACTOR_CONVER_1" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_2" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_3" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_4" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_5" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="FACTOR_CONVER_6" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TIPO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ORIGEN_CORP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="PESO_NETO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PESO_BRUTO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="VOLUMEN" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="BULTOS" Type="smallint" Nullable="false" />
+    <Property Name="ARTICULO_CUENTA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="IMPUESTO" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="FACTOR_EMPAQUE" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="FACTOR_VENTA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="EXISTENCIA_MINIMA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="EXISTENCIA_MAXIMA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PUNTO_DE_REORDEN" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_FISCAL" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="COSTO_COMPARATIVO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="COSTO_PROM_LOC" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_PROM_DOL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_STD_LOC" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_STD_DOL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_ULT_LOC" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_ULT_DOL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PRECIO_BASE_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PRECIO_BASE_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="ULTIMA_SALIDA" Type="datetime" Nullable="false" />
+    <Property Name="ULTIMO_MOVIMIENTO" Type="datetime" Nullable="false" />
+    <Property Name="ULTIMO_INGRESO" Type="datetime" Nullable="false" />
+    <Property Name="ULTIMO_INVENTARIO" Type="datetime" Nullable="false" />
+    <Property Name="CLASE_ABC" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FRECUENCIA_CONTEO" Type="smallint" Nullable="false" />
+    <Property Name="CODIGO_BARRAS_VENT" Type="varchar" MaxLength="20" />
+    <Property Name="CODIGO_BARRAS_INVT" Type="varchar" MaxLength="20" />
+    <Property Name="ACTIVO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="USA_LOTES" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="OBLIGA_CUARENTENA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MIN_VIDA_COMPRA" Type="smallint" Nullable="false" />
+    <Property Name="MIN_VIDA_CONSUMO" Type="smallint" Nullable="false" />
+    <Property Name="MIN_VIDA_VENTA" Type="smallint" Nullable="false" />
+    <Property Name="VIDA_UTIL_PROM" Type="smallint" Nullable="false" />
+    <Property Name="DIAS_CUARENTENA" Type="smallint" Nullable="false" />
+    <Property Name="PROVEEDOR" Type="varchar" MaxLength="20" />
+    <Property Name="ARTICULO_DEL_PROV" Type="varchar" MaxLength="30" />
+    <Property Name="ORDEN_MINIMA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PLAZO_REABAST" Type="smallint" Nullable="false" />
+    <Property Name="LOTE_MULTIPLO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="NOTAS" Type="text" />
+    <Property Name="UTILIZADO_MANUFACT" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="USUARIO_CREACION" Type="varchar" MaxLength="25" />
+    <Property Name="FCH_HORA_CREACION" Type="datetime" />
+    <Property Name="USUARIO_ULT_MODIF" Type="varchar" MaxLength="25" />
+    <Property Name="FCH_HORA_ULT_MODIF" Type="datetime" />
+    <Property Name="USA_NUMEROS_SERIE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MODALIDAD_INV_FIS" Type="varchar" MaxLength="1" />
+    <Property Name="TIPO_COD_BARRA_DET" Type="varchar" MaxLength="1" />
+    <Property Name="TIPO_COD_BARRA_ALM" Type="varchar" MaxLength="1" />
+    <Property Name="USA_REGLAS_LOCALES" Type="varchar" MaxLength="1" />
+    <Property Name="UNIDAD_ALMACEN" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="UNIDAD_EMPAQUE" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="UNIDAD_VENTA" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="PERECEDERO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="GTIN" Type="varchar" MaxLength="13" />
+    <Property Name="MANUFACTURADOR" Type="varchar" MaxLength="35" />
+    <Property Name="CODIGO_RETENCION" Type="varchar" MaxLength="4" />
+    <Property Name="RETENCION_VENTA" Type="varchar" MaxLength="4" />
+    <Property Name="RETENCION_COMPRA" Type="varchar" MaxLength="4" />
+    <Property Name="MODELO_RETENCION" Type="varchar" MaxLength="4" />
+    <Property Name="ESTILO" Type="varchar" MaxLength="5" />
+    <Property Name="TALLA" Type="varchar" MaxLength="5" />
+    <Property Name="COLOR" Type="varchar" MaxLength="5" />
+    <Property Name="TIPO_COSTO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ARTICULO_ENVASE" Type="varchar" MaxLength="20" />
+    <Property Name="ES_ENVASE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="USA_CONTROL_ENVASE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="COSTO_PROM_COMPARATIVO_LOC" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_PROM_COMPARATIVO_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_PROM_ULTIMO_LOC" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_PROM_ULTIMO_DOL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UTILIZADO_EN_CONTRATOS" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="VALIDA_CANT_FASE_PY" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="OBLIGA_INCLUIR_FASE_PY" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ES_IMPUESTO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="U_CLAVE_UNIDAD" Type="varchar" MaxLength="20" />
+    <Property Name="U_CLAVE_PROD_SERV" Type="varchar" MaxLength="200" />
+    <Property Name="U_CLAVE_PS_PUB" Type="varchar" MaxLength="4" />
+    <Property Name="TIPO_DOC_IVA" Type="varchar" MaxLength="2" />
+    <Property Name="NIT" Type="varchar" MaxLength="20" />
+    <Property Name="CANASTA_BASICA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ES_OTRO_CARGO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="SERVICIO_MEDICO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="item_hacienda" Type="varchar" MaxLength="4" />
+    <Property Name="CODIGO_HACIENDA" Type="varchar" MaxLength="50" />
+    <Property Name="ITEM_HACIENDA_COMPRA" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="ARTICULO_PRECIO">
+    <Key>
+      <PropertyRef Name="NIVEL_PRECIO" />
+      <PropertyRef Name="MONEDA" />
+      <PropertyRef Name="VERSION" />
+      <PropertyRef Name="ARTICULO" />
+      <PropertyRef Name="VERSION_ARTICULO" />
+    </Key>
+    <Property Name="NIVEL_PRECIO" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="MONEDA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="VERSION" Type="int" Nullable="false" />
+    <Property Name="ARTICULO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="VERSION_ARTICULO" Type="int" Nullable="false" />
+    <Property Name="PRECIO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="ESQUEMA_TRABAJO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MARGEN_MULR" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="MARGEN_UTILIDAD" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_FIN" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_ULT_MODIF" Type="datetime" />
+    <Property Name="USUARIO_ULT_MODIF" Type="varchar" MaxLength="25" />
+    <Property Name="MARGEN_UTILIDAD_MIN" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ASIGNACION_BODEGAS">
+    <Key>
+      <PropertyRef Name="BODEGA_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+    </Key>
+    <Property Name="BODEGA_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ASIGNACION_CLIENTES">
+    <Key>
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="UBICACION_ID" />
+    </Key>
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UBICACION_ID" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BANCOS_CUENTAS">
+    <Key>
+      <PropertyRef Name="CUENTA_ID" />
+    </Key>
+    <Property Name="CUENTA_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="BANCO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DESCRIPCION_BANCO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NUMERO_CUENTA" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BODEGA">
+    <Key>
+      <PropertyRef Name="BODEGA" />
+    </Key>
+    <Property Name="BODEGA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TELEFONO" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="120" />
+    <Property Name="CONSEC_TRASLADOS" Type="varchar" MaxLength="10" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="U_SUCURSAL" Type="varchar" MaxLength="3" />
+    <Property Name="U_COORDINADAS" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="CARTERA_DOCUMENTOS">
+    <Key>
+      <PropertyRef Name="DOCUMENTO_ID" />
+      <PropertyRef Name="TIPO_DOCUMENTO" />
+    </Key>
+    <Property Name="DOCUMENTO_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TIPO_DOCUMENTO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NUMERO_REFERENCIA" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DOC_REFERENCIA" Type="varchar" MaxLength="30" />
+    <Property Name="FECHA_DOCUMENTO" Type="date" />
+    <Property Name="FECHA_BASE" Type="date" />
+    <Property Name="FECHA_VENCIMIENTO" Type="date" />
+    <Property Name="VALOR_BASE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_TOTAL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SALDO_PENDIENTE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CONDICION_COMERCIAL_ID" Type="varchar" MaxLength="10" />
+    <Property Name="PORCENTAJE_DESCUENTO1" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORCENTAJE_DESCUENTO2" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORCENTAJE_DESCUENTO3" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORCENTAJE_DESCUENTO4" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DIAS_PORC_DSCTO1" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DIAS_PORC_DSCTO2" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DIAS_PORC_DSCTO3" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DIAS_PORC_DSCTO4" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MIN1" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MAX1" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MIN2" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MAX2" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MIN3" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MAX3" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MIN4" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_MAX4" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_IVA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO1" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO2" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO3" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO4" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO5" Type="varchar" MaxLength="100" />
+    <Property Name="FILTRO1" Type="varchar" MaxLength="100" />
+    <Property Name="FILTRO2" Type="varchar" MaxLength="100" />
+    <Property Name="FILTRO3" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CARTERA_TIPOS_DOC">
+    <Key>
+      <PropertyRef Name="TIPO_DOCUMENTO_ID" />
+    </Key>
+    <Property Name="TIPO_DOCUMENTO_ID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="OPERADOR" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIPO_IDENTIFICACION_ID" Type="varchar" MaxLength="10" />
+    <Property Name="NIT" Type="varchar" MaxLength="20" />
+    <Property Name="RAZON_SOCIAL" Type="varchar" MaxLength="100" />
+    <Property Name="CIIU" Type="varchar" MaxLength="20" />
+    <Property Name="TIPO_CLIENTE_ID" Type="varchar" MaxLength="10" />
+    <Property Name="LISTA_PRECIOS_ID" Type="varchar" MaxLength="10" />
+    <Property Name="TIPO_PERSONA_ID" Type="varchar" MaxLength="1" />
+    <Property Name="CONDICION_COMERCIAL_ID" Type="varchar" MaxLength="10" />
+    <Property Name="CUPO_CREDITO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="BLOQUEO_PEDIDOS" Type="varchar" MaxLength="1" />
+    <Property Name="PED_DIAS_DESPACHO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PED_VALOR_MINIMO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ETAPA_ACTUAL" Type="varchar" MaxLength="10" />
+    <Property Name="TIPO_VENTA" Type="varchar" MaxLength="2" />
+    <Property Name="PORC_RETEFUENTE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO2" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO3" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO4" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO5" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO6" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO7" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO8" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO9" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO10" Type="varchar" MaxLength="200" />
+    <Property Name="CLASE_CLIENTE_ID" Type="varchar" MaxLength="20" />
+    <Property Name="FECHA_CREACION_ERP" Type="datetime" />
+    <Property Name="PORC_RETEICA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_CREE" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="CLASIFICACION">
+    <Key>
+      <PropertyRef Name="CLASIFICACION" />
+    </Key>
+    <Property Name="CLASIFICACION" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="AGRUPACION" Type="smallint" Nullable="false" />
+    <Property Name="USA_NUMEROS_SERIE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="PLANTILLA_SERIE" Type="varchar" MaxLength="4" />
+    <Property Name="APORTE_CODIGO" Type="varchar" MaxLength="5" />
+    <Property Name="TIPO_CODIGO_BARRAS" Type="varchar" MaxLength="1" />
+    <Property Name="UNIDAD_MEDIDA" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="CLIENTE" />
+    </Key>
+    <Property Name="CLIENTE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="DETALLE_DIRECCION" Type="int" />
+    <Property Name="ALIAS" Type="varchar" MaxLength="150" />
+    <Property Name="CONTACTO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CARGO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DIRECCION" Type="text" />
+    <Property Name="DIR_EMB_DEFAULT" Type="varchar" MaxLength="8" />
+    <Property Name="TELEFONO1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TELEFONO2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FAX" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CONTRIBUYENTE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FECHA_INGRESO" Type="datetime" Nullable="false" />
+    <Property Name="MULTIMONEDA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MONEDA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="SALDO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_CREDITO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_NOCARGOS" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="LIMITE_CREDITO" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="EXCEDER_LIMITE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TASA_INTERES" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TASA_INTERES_MORA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="FECHA_ULT_MORA" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_ULT_MOV" Type="datetime" Nullable="false" />
+    <Property Name="CONDICION_PAGO" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="NIVEL_PRECIO" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="DESCUENTO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONEDA_NIVEL" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ACEPTA_BACKORDER" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="PAIS" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ZONA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="RUTA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="VENDEDOR" Type="varchar" MaxLength="4" />
+    <Property Name="COBRADOR" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ACEPTA_FRACCIONES" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ACTIVO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="EXENTO_IMPUESTOS" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="EXENCION_IMP1" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="EXENCION_IMP2" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COBRO_JUDICIAL" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CATEGORIA_CLIENTE" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CLASE_ABC" Type="varchar" MaxLength="1" />
+    <Property Name="DIAS_ABASTECIMIEN" Type="smallint" Nullable="false" />
+    <Property Name="USA_TARJETA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TARJETA_CREDITO" Type="varchar" MaxLength="20" />
+    <Property Name="TIPO_TARJETA" Type="varchar" MaxLength="12" />
+    <Property Name="FECHA_VENCE_TARJ" Type="datetime" />
+    <Property Name="E_MAIL" Type="varchar" MaxLength="249" />
+    <Property Name="REQUIERE_OC" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ES_CORPORACION" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CLI_CORPORAC_ASOC" Type="varchar" MaxLength="20" />
+    <Property Name="REGISTRARDOCSACORP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="USAR_DIREMB_CORP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="APLICAC_ABIERTAS" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="VERIF_LIMCRED_CORP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="USAR_DESC_CORP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DOC_A_GENERAR" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="RUBRO1_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO2_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO3_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="TIENE_CONVENIO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="NOTAS" Type="text" />
+    <Property Name="DIAS_PROMED_ATRASO" Type="smallint" Nullable="false" />
+    <Property Name="RUBRO1_CLI" Type="varchar" MaxLength="50" />
+    <Property Name="RUBRO2_CLI" Type="varchar" MaxLength="50" />
+    <Property Name="RUBRO3_CLI" Type="varchar" MaxLength="50" />
+    <Property Name="RUBRO4_CLI" Type="varchar" MaxLength="50" />
+    <Property Name="RUBRO5_CLI" Type="varchar" MaxLength="50" />
+    <Property Name="ASOCOBLIGCONTFACT" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="RUBRO4_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO5_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO6_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO7_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO8_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO9_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO10_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="USAR_PRECIOS_CORP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="USAR_EXENCIMP_CORP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DIAS_DE_COBRO" Type="varchar" MaxLength="13" />
+    <Property Name="AJUSTE_FECHA_COBRO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="GLN" Type="varchar" MaxLength="13" />
+    <Property Name="UBICACION" Type="varchar" MaxLength="249" />
+    <Property Name="CLASE_DOCUMENTO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="LOCAL" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TIPO_CONTRIBUYENTE" Type="varchar" MaxLength="1" />
+    <Property Name="RUBRO11_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO12_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO13_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO14_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO15_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO16_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO17_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO18_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO19_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO20_CLIENTE" Type="varchar" MaxLength="40" />
+    <Property Name="MODELO_RETENCION" Type="varchar" MaxLength="4" />
+    <Property Name="ACEPTA_DOC_ELECTRONICO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CONFIRMA_DOC_ELECTRONICO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="EMAIL_DOC_ELECTRONICO" Type="varchar" MaxLength="249" />
+    <Property Name="EMAIL_PED_EDI" Type="varchar" MaxLength="249" />
+    <Property Name="ACEPTA_DOC_EDI" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="NOTIFICAR_ERROR_EDI" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="EMAIL_ERROR_PED_EDI" Type="varchar" MaxLength="249" />
+    <Property Name="CODIGO_IMPUESTO" Type="varchar" MaxLength="4" />
+    <Property Name="DIVISION_GEOGRAFICA1" Type="varchar" MaxLength="12" />
+    <Property Name="DIVISION_GEOGRAFICA2" Type="varchar" MaxLength="12" />
+    <Property Name="REGIMEN_TRIB" Type="varchar" MaxLength="12" />
+    <Property Name="MOROSO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MODIF_NOMB_EN_FAC" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="SALDO_TRANS" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_TRANS_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_TRANS_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PERMITE_DOC_GP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="PARTICIPA_FLUJOCAJA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CURP" Type="varchar" MaxLength="18" />
+    <Property Name="USUARIO_CREACION" Type="varchar" MaxLength="25" />
+    <Property Name="FECHA_HORA_CREACION" Type="datetime" />
+    <Property Name="USUARIO_ULT_MOD" Type="varchar" MaxLength="25" />
+    <Property Name="FCH_HORA_ULT_MOD" Type="datetime" />
+    <Property Name="EMAIL_DOC_ELECTRONICO_COPIA" Type="varchar" MaxLength="249" />
+    <Property Name="DETALLAR_KITS" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="XSLT_PERSONALIZADO" Type="varchar" MaxLength="20" />
+    <Property Name="NOMBRE_ADDENDA" Type="varchar" MaxLength="20" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="GEO_LATITUD" Type="decimal" Precision="28" Scale="12" />
+    <Property Name="GEO_LONGITUD" Type="decimal" Precision="28" Scale="12" />
+    <Property Name="DIVISION_GEOGRAFICA3" Type="varchar" MaxLength="12" />
+    <Property Name="DIVISION_GEOGRAFICA4" Type="varchar" MaxLength="12" />
+    <Property Name="OTRAS_SENAS" Type="varchar" MaxLength="160" />
+    <Property Name="SUBTIPODOC" Type="varchar" MaxLength="25" />
+    <Property Name="U_TIPO_RECEPTOR" Type="varchar" MaxLength="4" />
+    <Property Name="API_RECEPCION_DE" Type="varchar" MaxLength="254" />
+    <Property Name="USA_API_RECEPCION" Type="varchar" MaxLength="1" />
+    <Property Name="USER_API_RECEPCION" Type="varchar" MaxLength="254" />
+    <Property Name="PASS_API_RECEPCION" Type="varchar" MaxLength="254" />
+    <Property Name="TIPO_IMPUESTO" Type="varchar" MaxLength="4" />
+    <Property Name="TIPO_TARIFA" Type="varchar" MaxLength="2" />
+    <Property Name="PORC_TARIFA" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TIPIFICACION_CLIENTE" Type="varchar" MaxLength="2" />
+    <Property Name="AFECTACION_IVA" Type="varchar" MaxLength="2" />
+    <Property Name="ES_EXTRANJERO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="item_hacienda" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="CLIENTE_RETENCION">
+    <Key>
+      <PropertyRef Name="CLIENTE" />
+      <PropertyRef Name="CODIGO_RETENCION" />
+    </Key>
+    <Property Name="CLIENTE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CODIGO_RETENCION" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="NOTAS" Type="text" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CLIENTES">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIPO_IDENTIFICACION_ID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NIT" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="RAZON_SOCIAL" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CIIU" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TIPO_CLIENTE_ID" Type="varchar" MaxLength="10" />
+    <Property Name="LISTA_PRECIOS_ID" Type="varchar" MaxLength="10" />
+    <Property Name="TIPO_PERSONA_ID" Type="varchar" MaxLength="1" />
+    <Property Name="CONDICION_COMERCIAL_ID" Type="varchar" MaxLength="10" />
+    <Property Name="CUPO_CREDITO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="BLOQUEO_PEDIDOS" Type="varchar" MaxLength="1" />
+    <Property Name="PED_DIAS_DESPACHO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PED_VALOR_MINIMO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ETAPA_ACTUAL" Type="varchar" MaxLength="10" />
+    <Property Name="TIPO_VENTA" Type="varchar" MaxLength="2" />
+    <Property Name="PORC_RETEFUENTE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO2" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO3" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO4" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO5" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO6" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO7" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO8" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO0" Type="varchar" MaxLength="200" />
+    <Property Name="CAMPO10" Type="varchar" MaxLength="200" />
+    <Property Name="CLASE_CLIENTE_ID" Type="varchar" MaxLength="20" />
+    <Property Name="FECHA_CREACION_ERP" Type="datetime" />
+    <Property Name="PORC_RETEICA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_CREE" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="CLIENTES_CONTACTOS">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="UBICACION_ID" />
+      <PropertyRef Name="CONTACTO_ID" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UBICACION_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CONTACTO_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIPO_CONTACTO" Type="varchar" MaxLength="20" />
+    <Property Name="NOMBRE_CONTACTO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TELEFONO1" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="TELEFONO2" Type="varchar" MaxLength="35" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CLIENTES_UBICACIONES">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="UBICACION_ID" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UBICACION_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NOMBRE_UBICACION" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PAIS_ID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DEPARTAMENTO_ID" Type="varchar" MaxLength="20" />
+    <Property Name="CIUDAD_ID" Type="varchar" MaxLength="20" />
+    <Property Name="ZONA_ID" Type="varchar" MaxLength="20" />
+    <Property Name="BARRIO" Type="varchar" MaxLength="50" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="LATITUD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="LONGITUD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ES_PUNTO_VISITA" Type="varchar" MaxLength="1" />
+    <Property Name="ES_PUNTO_ENVIO" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="CONDICION_PAGO">
+    <Key>
+      <PropertyRef Name="CONDICION_PAGO" />
+    </Key>
+    <Property Name="CONDICION_PAGO" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="DIAS_NETO" Type="int" Nullable="false" />
+    <Property Name="PAGOS_PARCIALES" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DESCUENTO_CONTADO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_CONDPAGO" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="PLAZO_CONDPAGO" Type="int" />
+    <Property Name="TIPO_DIFERIDO" Type="varchar" MaxLength="4" />
+    <Property Name="USA_DIFERIDO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="U_METODO_PAGO" Type="varchar" MaxLength="100" />
+    <Property Name="U_FORMA_PAGO" Type="varchar" MaxLength="100" />
+    <Property Name="U_PLAZO_PAGO" Type="varchar" MaxLength="4" />
+    <Property Name="CONDICION_VENTA" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="CONDICIONES_COMERCIALES">
+    <Key>
+      <PropertyRef Name="CONDICION_COMERCIAL_ID" />
+    </Key>
+    <Property Name="CONDICION_COMERCIAL_ID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DIAS_VENCIMIENTO_PED" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CUENTA_BANCARIA">
+    <Key>
+      <PropertyRef Name="CUENTA_BANCO" />
+    </Key>
+    <Property Name="CUENTA_BANCO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ENTIDAD_FINANCIERA" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="MONEDA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="90" Nullable="false" />
+    <Property Name="TELEFONO1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="TELEFONO2" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CONTACTO" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="CARGO" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="FORMATO" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="FECHA_ULT_MOV" Type="datetime" Nullable="false" />
+    <Property Name="SALDO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_BANCOS" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="POSICION_DE_CAJA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_ANTERIOR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_CAMBIO_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_CAMBIO_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="ACTIVA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ULTIMO_DEPOSITO" Type="decimal" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="ULTIMA_TEFCR" Type="decimal" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="LIMITE_SOBREGIRO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CTR_CONTABLE" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_CONTABLE" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_CIERRE_DEB" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_CIERRE_DEB" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_CIERRE_CRED" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_CIERRE_CRED" Type="varchar" MaxLength="25" />
+    <Property Name="ULTIMA_NOTACR" Type="decimal" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="ULTIMO_CHEQUE" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="ULTIMO_OTROCR" Type="decimal" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="ULTIMA_TEFDB" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="ULTIMA_NOTADB" Type="decimal" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="ULTIMO_OTRODB" Type="decimal" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="ULTIMA_CONCIL" Type="int" />
+    <Property Name="MODO_CONCILIAR" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="IDIOMA_MON_LETRAS" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TIPO_CRED_AJUSTE" Type="varchar" MaxLength="3" />
+    <Property Name="SUBTIPO_CRED_AJUST" Type="smallint" />
+    <Property Name="TIPO_DEB_AJUSTE" Type="varchar" MaxLength="3" />
+    <Property Name="SUBTIPO_DEB_AJUST" Type="smallint" />
+    <Property Name="PERMITE_SOBREGIRO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CTA_AJUSTE_CRED" Type="varchar" MaxLength="25" />
+    <Property Name="FCH_HORA_CREACION" Type="datetime" Nullable="false" />
+    <Property Name="USUARIO_CREACION" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CTR_AJUSTE_DEB" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_GASTO_TRANSF" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_AJUSTE_DEB" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_GASTO_TRANSF" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_LIQUIDAR_CRED" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_LIQUIDAR_CRED" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_LIQUIDAR_DEB" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_LIQUIDAR_DEB" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_AJUSTE_CRED" Type="varchar" MaxLength="25" />
+    <Property Name="FCH_HORA_MODIFIC" Type="datetime" />
+    <Property Name="USUARIO_MODIFIC" Type="varchar" MaxLength="25" />
+    <Property Name="PERMITE_TRANSF_IC" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CTA_TRANSF_IC" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_TRANSF_IC" Type="varchar" MaxLength="25" />
+    <Property Name="RUBRO1_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO2_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO3_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO4_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO5_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO6_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO7_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO8_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO9_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="RUBRO10_CTABANCO" Type="varchar" MaxLength="40" />
+    <Property Name="CONSE_CHEQUE" Type="varchar" MaxLength="10" />
+    <Property Name="CONSE_TEF" Type="varchar" MaxLength="10" />
+    <Property Name="TIPO_CUENTA" Type="varchar" MaxLength="12" />
+    <Property Name="CTR_DOC_GP" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_DOC_GP" Type="varchar" MaxLength="25" />
+    <Property Name="SALDO_TRANS" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_TRANS_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_TRANS_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PERMITE_DOC_GP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="PARTICIPA_FLUJOCAJA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CTA_ELECTRONICA" Type="varchar" MaxLength="50" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_DEVOLUCIONES">
+    <Key>
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="DEVOLUCION_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+    </Key>
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DEVOLUCION_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRODUCTO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRESENTACION_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CANTIDAD" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="VALOR" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FECHA_VENCIMIENTO" Type="datetime" Nullable="false" />
+    <Property Name="LOTE" Type="varchar" MaxLength="50" />
+    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="MOTIVO_ID" Type="varchar" MaxLength="20" />
+    <Property Name="ESTADO_PRODUCTO" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_PEDIDOS">
+    <Key>
+      <PropertyRef Name="PEDIDO_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+    </Key>
+    <Property Name="PEDIDO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRODUCTO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRESENTACION_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CANTIDAD_UNIDADES_BASE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CANTIDAD_PRESENTACION" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PRECIO_BASE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_BRUTO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TIPO_DESCUENTO" Type="char" MaxLength="1" />
+    <Property Name="DESCUENTO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="IVA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SUBTOTAL_SIN_IVA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="100" />
+    <Property Name="BODEGA_ID" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="DEVOLUCION">
+    <Key>
+      <PropertyRef Name="DEVOLUCION" />
+    </Key>
+    <Property Name="DEVOLUCION" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="USUARIO_CREADO" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="AJUSTE_CONFIG" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="EMBARQUE" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="AUDIT_TRANS_INV" Type="int" />
+    <Property Name="TIPO_DEVOLUCION" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_DEVOLUCION" Type="datetime" Nullable="false" />
+    <Property Name="AFECTA_ORDEN" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DOCUMENTO_DEBITO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ASIENTO" Type="varchar" MaxLength="10" />
+    <Property Name="NOTAS" Type="text" />
+    <Property Name="NUMERO_DEBITO" Type="varchar" MaxLength="50" />
+    <Property Name="SUBTIPO" Type="smallint" />
+    <Property Name="FECHA_DOCDEBITO" Type="datetime" />
+    <Property Name="APLICACION" Type="varchar" MaxLength="40" />
+    <Property Name="FECHA_HORA_CREADO" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_HORA_APLIC" Type="datetime" />
+    <Property Name="FECHA_HORA_CANCELA" Type="datetime" />
+    <Property Name="USUARIO_APLICADO" Type="varchar" MaxLength="25" />
+    <Property Name="USUARIO_CANCELA" Type="varchar" MaxLength="25" />
+    <Property Name="MONEDA_DDEB" Type="varchar" MaxLength="4" />
+    <Property Name="PROVEEDOR_DDEB" Type="varchar" MaxLength="20" />
+    <Property Name="TC_MONEDA_LOCAL" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TC_MONEDA_DOLAR" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_CAI" Type="datetime" />
+    <Property Name="CAI" Type="varchar" MaxLength="50" />
+    <Property Name="TIPO_AFECTACION_IVA" Type="varchar" MaxLength="2" />
+    <Property Name="TIPO_IMPUESTO" Type="varchar" MaxLength="4" />
+    <Property Name="TIPO_TARIFA" Type="varchar" MaxLength="2" />
+    <Property Name="PORC_AFECTACION_IVA" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="MontoTotalImpuestoAcreditar" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="MontoTotalDeGastoAplicable" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="MontoProporcionalidad" Type="decimal" Precision="28" Scale="8" />
+  </EntityType>
+  <EntityType Name="DOCUMENTOS_CC">
+    <Key>
+      <PropertyRef Name="DOCUMENTO" />
+      <PropertyRef Name="TIPO" />
+    </Key>
+    <Property Name="DOCUMENTO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="CONTRARECIBO" Type="varchar" MaxLength="50" />
+    <Property Name="APLICACION" Type="varchar" MaxLength="249" Nullable="false" />
+    <Property Name="FECHA_DOCUMENTO" Type="datetime" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="MONTO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_CLIENTE" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_CLIENTE" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_CAMBIO_MONEDA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_CAMBIO_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_CAMBIO_CLIENT" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_CAMB_ACT_LOC" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_CAMB_ACT_DOL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_CAMB_ACT_CLI" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SUBTOTAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="DESCUENTO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="IMPUESTO1" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="IMPUESTO2" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="RUBRO1" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="RUBRO2" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_RETENCION" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_RETENCION" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="DEPENDIENTE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_ULT_CREDITO" Type="datetime" Nullable="false" />
+    <Property Name="CARGADO_DE_FACT" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="APROBADO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ASIENTO" Type="varchar" MaxLength="10" />
+    <Property Name="ASIENTO_PENDIENTE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_ULT_MOD" Type="datetime" Nullable="false" />
+    <Property Name="NOTAS" Type="text" />
+    <Property Name="CLASE_DOCUMENTO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_VENCE" Type="datetime" Nullable="false" />
+    <Property Name="NUM_PARCIALIDADES" Type="smallint" Nullable="false" />
+    <Property Name="FECHA_REVISION" Type="datetime" />
+    <Property Name="COBRADOR" Type="varchar" MaxLength="4" />
+    <Property Name="USUARIO_ULT_MOD" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CONDICION_PAGO" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="MONEDA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="CTA_BANCARIA" Type="varchar" MaxLength="20" />
+    <Property Name="VENDEDOR" Type="varchar" MaxLength="4" />
+    <Property Name="CLIENTE_REPORTE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CLIENTE_ORIGEN" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CLIENTE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SUBTIPO" Type="smallint" />
+    <Property Name="PORC_INTCTE" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CONTRATO" Type="varchar" MaxLength="20" />
+    <Property Name="TIPO_DOC_ORIGEN" Type="varchar" MaxLength="3" />
+    <Property Name="DOC_DOC_ORIGEN" Type="varchar" MaxLength="50" />
+    <Property Name="FECHA_ANUL" Type="datetime" />
+    <Property Name="AUD_USUARIO_ANUL" Type="varchar" MaxLength="25" />
+    <Property Name="AUD_FECHA_ANUL" Type="datetime" />
+    <Property Name="NUM_DOC_CB" Type="decimal" Precision="28" Scale="0" />
+    <Property Name="FECHA_COBRO" Type="datetime" />
+    <Property Name="AUDITORIA_COBRO" Type="varchar" MaxLength="80" />
+    <Property Name="FECHA_SEGUIMIENTO" Type="datetime" />
+    <Property Name="OBSERVACIONES_COBRO" Type="varchar" MaxLength="249" />
+    <Property Name="USUARIO_APROBACION" Type="varchar" MaxLength="25" />
+    <Property Name="FECHA_APROBACION" Type="datetime" />
+    <Property Name="ANULADO" Type="varchar" MaxLength="1" />
+    <Property Name="CODIGO_IMPUESTO" Type="varchar" MaxLength="4" />
+    <Property Name="PAIS" Type="varchar" MaxLength="4" />
+    <Property Name="DIVISION_GEOGRAFICA1" Type="varchar" MaxLength="12" />
+    <Property Name="DIVISION_GEOGRAFICA2" Type="varchar" MaxLength="12" />
+    <Property Name="BASE_IMPUESTO1" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="BASE_IMPUESTO2" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="DEPENDIENTE_GP" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="SALDO_TRANS" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_TRANS_LOCAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_TRANS_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="FECHA_PROYECTADA" Type="datetime" />
+    <Property Name="PORC_RECUPERACION" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TIPO_ASIENTO" Type="varchar" MaxLength="4" />
+    <Property Name="PAQUETE" Type="varchar" MaxLength="4" />
+    <Property Name="SALDO_TRANS_CLI" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="DOCUMENTO_FISCAL" Type="varchar" MaxLength="50" />
+    <Property Name="FACTURADO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="GENERA_DOC_FE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TASA_IMPOSITIVA" Type="varchar" MaxLength="4" />
+    <Property Name="TASA_IMPOSITIVA_PORC" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_CREE1" Type="varchar" MaxLength="4" />
+    <Property Name="TASA_CREE1_PORC" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_CREE2" Type="varchar" MaxLength="4" />
+    <Property Name="TASA_CREE2_PORC" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_GAN_OCASIONAL_PORC" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="ENTIDAD_FINANCIERA" Type="varchar" MaxLength="8" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="CONTRATO_AC" Type="varchar" MaxLength="10" />
+    <Property Name="DOCUMENTO_GLOBAL" Type="varchar" MaxLength="50" />
+    <Property Name="CUENTA_ORIGEN" Type="varchar" MaxLength="20" />
+    <Property Name="USO_CFDI" Type="varchar" MaxLength="3" />
+    <Property Name="U_CLAVE_UNIDAD" Type="varchar" MaxLength="20" />
+    <Property Name="U_CLAVE_PROD_SERV" Type="varchar" MaxLength="200" />
+    <Property Name="FORMA_PAGO" Type="varchar" MaxLength="3" />
+    <Property Name="U_TIPO_RELACION" Type="varchar" MaxLength="200" />
+    <Property Name="CLAVE_REFERENCIA_DE" Type="varchar" MaxLength="50" />
+    <Property Name="FECHA_REFERENCIA_DE" Type="datetime" />
+    <Property Name="JUSTI_DEV_HACIEND" Type="varchar" MaxLength="2" />
+    <Property Name="TIPO_OPERACION" Type="varchar" MaxLength="4" />
+    <Property Name="U_CLAVE_PS_PUB" Type="varchar" MaxLength="4" />
+    <Property Name="INCOTERMS" Type="varchar" MaxLength="3" />
+    <Property Name="CONSECUTIVO" Type="varchar" MaxLength="10" />
+    <Property Name="CLAVE_DE" Type="varchar" MaxLength="50" />
+    <Property Name="TIPO_IMPUESTO1" Type="varchar" MaxLength="4" />
+    <Property Name="TIPO_TARIFA1" Type="varchar" MaxLength="2" />
+    <Property Name="TIPO_IMPUESTO2" Type="varchar" MaxLength="4" />
+    <Property Name="TIPO_TARIFA2" Type="varchar" MaxLength="2" />
+    <Property Name="ACTIVIDAD_COMERCIAL" Type="varchar" MaxLength="10" />
+    <Property Name="ITEM_HACIENDA" Type="varchar" MaxLength="4" />
+    <Property Name="PREFIJO" Type="varchar" MaxLength="25" />
+    <Property Name="FECHA_INICIO_RESOLUCION" Type="datetime" />
+    <Property Name="FECHA_FINAL_RESOLUCION" Type="datetime" />
+    <Property Name="CLAVE_TECNICA" Type="varchar" MaxLength="80" />
+    <Property Name="MATRICULA_MERCANTIL" Type="int" />
+    <Property Name="ES_FACTURA_REEMPLAZO" Type="varchar" MaxLength="1" />
+    <Property Name="FACTURA_ORIGINAL_REEMPLAZO" Type="varchar" MaxLength="50" />
+    <Property Name="TIPO_REFERENCIA_DE" Type="varchar" MaxLength="4" />
+    <Property Name="CONSECUTIVO_FTC" Type="varchar" MaxLength="10" />
+    <Property Name="NUMERO_FTC" Type="varchar" MaxLength="50" />
+    <Property Name="NIT_TRANSPORTADOR" Type="varchar" MaxLength="20" />
+    <Property Name="CODIGO_REFERENCIA_DE" Type="varchar" MaxLength="2" />
+    <Property Name="NUM_OC_EXENTA" Type="varchar" MaxLength="100" />
+    <Property Name="NUM_CONS_REG_EXO" Type="varchar" MaxLength="100" />
+    <Property Name="NUM_IRSEDE_AGR_GAN" Type="varchar" MaxLength="100" />
+    <Property Name="U_AD_WM_TIPO_NC" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ENCABEZADO_DEVOLUCIONES">
+    <Key>
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="DEVOLUCION_ID" />
+    </Key>
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DEVOLUCION_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="50" />
+    <Property Name="MOTIVO_ID" Type="varchar" MaxLength="20" />
+    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="400" Nullable="false" />
+    <Property Name="VALOR_DEVOLUCION" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ENCABEZADO_PEDIDOS">
+    <Key>
+      <PropertyRef Name="PEDIDO_ID" />
+    </Key>
+    <Property Name="PEDIDO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FACTURA_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FECHA" Type="date" />
+    <Property Name="HORA" Type="varchar" MaxLength="10" />
+    <Property Name="DIRECCION_DESPACHO" Type="varchar" MaxLength="100" />
+    <Property Name="VALOR_BRUTO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_DESCUENTO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="OTROS_DESCUENTO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_IVA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_NETO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_TOTAL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="500" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+    <Property Name="MOTIVO" Type="varchar" MaxLength="10" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="10" />
+    <Property Name="FECHA_ENTREGA" Type="date" />
+    <Property Name="TIPO_FACTURA" Type="varchar" MaxLength="10" />
+    <Property Name="CAMPO1" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO2" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO3" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO4" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO5" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO6" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO7" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO8" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO9" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO10" Type="varchar" MaxLength="100" />
+    <Property Name="TIPO_PAGO" Type="varchar" MaxLength="3" />
+    <Property Name="VALOR_FLETE" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ENCABEZADO_RECAUDOS">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PREIMPRESO" Type="varchar" MaxLength="20" />
+    <Property Name="FECHA" Type="date" />
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="20" />
+    <Property Name="TOTAL_EFECTIVO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TOTAL_CHEQUE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TOTAL_CONSIGNACION" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TOTAL_RECAUDO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="200" />
+    <Property Name="ESTADO_RECAUDO" Type="varchar" MaxLength="20" />
+    <Property Name="NUM_COMPROB_RETENCION" Type="varchar" MaxLength="20" />
+    <Property Name="FECHA_COMPROB_RETENCION" Type="date" />
+    <Property Name="VALOR_COMPROB_RETENCION" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="EXISTENCIA_BODEGA">
+    <Key>
+      <PropertyRef Name="ARTICULO" />
+      <PropertyRef Name="BODEGA" />
+    </Key>
+    <Property Name="ARTICULO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="BODEGA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="EXISTENCIA_MINIMA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="EXISTENCIA_MAXIMA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PUNTO_DE_REORDEN" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_DISPONIBLE" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_RESERVADA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_NO_APROBADA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_VENCIDA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_TRANSITO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_PRODUCCION" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_PEDIDA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANT_REMITIDA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CONGELADO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_CONG" Type="datetime" />
+    <Property Name="BLOQUEA_TRANS" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_DESCONG" Type="datetime" />
+    <Property Name="COSTO_UNT_PROMEDIO_LOC" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_UNT_PROMEDIO_DOL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_UNT_ESTANDAR_LOC" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_UNT_ESTANDAR_DOL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_PROM_COMPARATIVO_LOC" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="COSTO_PROM_COMPARATIVO_DOLAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IMPUESTO">
+    <Key>
+      <PropertyRef Name="IMPUESTO" />
+    </Key>
+    <Property Name="IMPUESTO" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="IMPUESTO1" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="IMPUESTO2" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="USA_IMPUESTO2_CANTIDAD" Type="varchar" MaxLength="1" />
+    <Property Name="IMPUESTO2_CANTIDAD" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="CTR_IMP1_GEN" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP1_GEN" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_IMP2_GEN" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP2_GEN" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_IMP1_GEN_VTS" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP1_GEN_VTS" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_IMP2_GEN_VTS" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP2_GEN_VTS" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_IMP1_DESC_CMPS" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP1_DESC_CMPS" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_IMP2_DESC_CMPS" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP2_DESC_CMPS" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_IMP1_DEV_CMPS" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP1_DEV_CMPS" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_IMP2_DEV_CMPS" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP2_DEV_CMPS" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_IMP1_DEV_VTS" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP1_DEV_VTS" Type="varchar" MaxLength="25" />
+    <Property Name="CTR_IMP2_DEV_VTS" Type="varchar" MaxLength="25" />
+    <Property Name="CTA_IMP2_DEV_VTS" Type="varchar" MaxLength="25" />
+    <Property Name="TIPO_CONTAB_IMP1" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TIPO_CONTAB_IMP2" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CONTAB_DEV_IMP1" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CONTAB_DEV_IMP2" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CALCULO_IMP2" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="U_IMPUESTO1_SAT" Type="varchar" MaxLength="3" />
+    <Property Name="U_IMPUESTO2_SAT" Type="varchar" MaxLength="3" />
+    <Property Name="TIPO_IMPUESTO1" Type="varchar" MaxLength="4" />
+    <Property Name="TIPO_IMPUESTO2" Type="varchar" MaxLength="4" />
+    <Property Name="U_IMPUESTO" Type="varchar" MaxLength="4" />
+    <Property Name="U_IMPUESTO2" Type="varchar" MaxLength="4" />
+    <Property Name="TIPO_TARIFA1" Type="varchar" MaxLength="2" />
+    <Property Name="TIPO_TARIFA2" Type="varchar" MaxLength="2" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="U_IMPUESTO_EXCLUIDO" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INVENTARIO">
+    <Key>
+      <PropertyRef Name="BODEGA_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+    </Key>
+    <Property Name="BODEGA_ID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PRODUCTO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CANTIDAD" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LISTA_DIF_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+      <PropertyRef Name="FACTURA_ID" />
+      <PropertyRef Name="DIFERENCIA_ID" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FACTURA_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DIFERENCIA_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="VALOR_DIFERENCIA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="OBSERVACIONES" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="DATO_COMPLEMENTARIO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LISTA_FACT_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+      <PropertyRef Name="FACTURA_ID" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FACTURA_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SALDO_ANTERIOR" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_PAGO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_DESCUENTO_FINANCIERO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_DESCUENTO_FINANCIERO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_RETEFUENTE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_RETEFUENTE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_RETEICA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_RETEICA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PORC_CREE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="VALOR_CREE" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="LISTA_PAG_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TIPO_PAGO" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="VALOR_PAGO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="BANCO_ID" Type="varchar" MaxLength="100" />
+    <Property Name="NUMERO_DOCUMENTO" Type="varchar" MaxLength="30" />
+    <Property Name="NUMERO_CUENTA" Type="varchar" MaxLength="30" />
+    <Property Name="FECHA_CHEQUE" Type="date" />
+  </EntityType>
+  <EntityType Name="LISTAS_PRECIOS">
+    <Key>
+      <PropertyRef Name="LISTA_PRECIOS_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+    </Key>
+    <Property Name="LISTA_PRECIOS_ID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PRODUCTO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="VALOR_PRODUCTO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DESCUENTO" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="MAESTROS_LISTAS_PRECIOS">
+    <Key>
+      <PropertyRef Name="LISTA_PRECIOS_ID" />
+    </Key>
+    <Property Name="LISTA_PRECIOS_ID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CLASE_CLIENTE_ID" Type="varchar" MaxLength="20" />
+    <Property Name="LISTA_GENERICA" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="NIVEL_PRECIO">
+    <Key>
+      <PropertyRef Name="NIVEL_PRECIO" />
+      <PropertyRef Name="MONEDA" />
+    </Key>
+    <Property Name="NIVEL_PRECIO" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="MONEDA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CONDICION_PAGO" Type="varchar" MaxLength="4" />
+    <Property Name="ESQUEMA_TRABAJO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DESCUENTOS" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="SUGERIR_DESCUENTO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEDIDO">
+    <Key>
+      <PropertyRef Name="PEDIDO" />
+    </Key>
+    <Property Name="PEDIDO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_PEDIDO" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_PROMETIDA" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_PROX_EMBARQU" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_ULT_EMBARQUE" Type="datetime" />
+    <Property Name="FECHA_ULT_CANCELAC" Type="datetime" />
+    <Property Name="ORDEN_COMPRA" Type="varchar" MaxLength="30" />
+    <Property Name="FECHA_ORDEN" Type="datetime" />
+    <Property Name="TARJETA_CREDITO" Type="varchar" MaxLength="20" />
+    <Property Name="EMBARCAR_A" Type="varchar" MaxLength="160" />
+    <Property Name="DIREC_EMBARQUE" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="DIRECCION_FACTURA" Type="varchar" MaxLength="4000" Nullable="false" />
+    <Property Name="RUBRO1" Type="varchar" MaxLength="50" />
+    <Property Name="RUBRO2" Type="varchar" MaxLength="50" />
+    <Property Name="RUBRO3" Type="varchar" MaxLength="50" />
+    <Property Name="RUBRO4" Type="varchar" MaxLength="50" />
+    <Property Name="RUBRO5" Type="varchar" MaxLength="50" />
+    <Property Name="OBSERVACIONES" Type="text" />
+    <Property Name="COMENTARIO_CXC" Type="varchar" MaxLength="40" />
+    <Property Name="TOTAL_MERCADERIA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_ANTICIPO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_FLETE" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_SEGURO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_DOCUMENTACIO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_DESCUENTO1" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TIPO_DESCUENTO2" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MONTO_DESCUENTO1" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="MONTO_DESCUENTO2" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_DESCUENTO1" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_DESCUENTO2" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_IMPUESTO1" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_IMPUESTO2" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_A_FACTURAR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_COMI_VENDEDOR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_COMI_COBRADOR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_CANCELADO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TOTAL_UNIDADES" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="IMPRESO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_HORA" Type="datetime" Nullable="false" />
+    <Property Name="DESCUENTO_VOLUMEN" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_PEDIDO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MONEDA_PEDIDO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="VERSION_NP" Type="int" Nullable="false" />
+    <Property Name="AUTORIZADO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DOC_A_GENERAR" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CLASE_PEDIDO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MONEDA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="NIVEL_PRECIO" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="COBRADOR" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="RUTA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="USUARIO" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CONDICION_PAGO" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="BODEGA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="ZONA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="VENDEDOR" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="CLIENTE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CLIENTE_DIRECCION" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CLIENTE_CORPORAC" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CLIENTE_ORIGEN" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PAIS" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="SUBTIPO_DOC_CXC" Type="smallint" />
+    <Property Name="TIPO_DOC_CXC" Type="varchar" MaxLength="3" />
+    <Property Name="BACKORDER" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CONTRATO" Type="varchar" MaxLength="20" />
+    <Property Name="PORC_INTCTE" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="DESCUENTO_CASCADA" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="TIPO_CAMBIO" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="FIJAR_TIPO_CAMBIO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ORIGEN_PEDIDO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DESC_DIREC_EMBARQUE" Type="varchar" MaxLength="250" />
+    <Property Name="DIVISION_GEOGRAFICA1" Type="varchar" MaxLength="12" />
+    <Property Name="DIVISION_GEOGRAFICA2" Type="varchar" MaxLength="12" />
+    <Property Name="BASE_IMPUESTO1" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="BASE_IMPUESTO2" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="NOMBRE_CLIENTE" Type="varchar" MaxLength="150" />
+    <Property Name="FECHA_PROYECTADA" Type="datetime" />
+    <Property Name="FECHA_APROBACION" Type="datetime" />
+    <Property Name="TIPO_DOCUMENTO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="VERSION_COTIZACION" Type="varchar" MaxLength="10" />
+    <Property Name="RAZON_CANCELA_COTI" Type="varchar" MaxLength="10" />
+    <Property Name="DES_CANCELA_COTI" Type="varchar" MaxLength="254" />
+    <Property Name="CAMBIOS_COTI" Type="varchar" MaxLength="254" />
+    <Property Name="COTIZACION_PADRE" Type="varchar" MaxLength="50" />
+    <Property Name="TASA_IMPOSITIVA" Type="varchar" MaxLength="4" />
+    <Property Name="TASA_IMPOSITIVA_PORC" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_CREE1" Type="varchar" MaxLength="4" />
+    <Property Name="TASA_CREE1_PORC" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_CREE2" Type="varchar" MaxLength="4" />
+    <Property Name="TASA_CREE2_PORC" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="TASA_GAN_OCASIONAL_PORC" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="CONTRATO_AC" Type="varchar" MaxLength="10" />
+    <Property Name="TIPO_CONTRATO_AC" Type="varchar" MaxLength="10" />
+    <Property Name="PERIODICIDAD_CONTRATO_AC" Type="varchar" MaxLength="10" />
+    <Property Name="FECHA_CONTRATO_AC" Type="datetime" />
+    <Property Name="FECHA_INICIO_CONTRATO_AC" Type="datetime" />
+    <Property Name="FECHA_PROXFAC_CONTRATO_AC" Type="datetime" />
+    <Property Name="FECHA_FINFAC_CONTRATO_AC" Type="datetime" />
+    <Property Name="FECHA_ULTAUMENTO_CONTRATO_AC" Type="datetime" />
+    <Property Name="FECHA_PROXFACSIST_CONTRATO_AC" Type="datetime" />
+    <Property Name="DIFERIDO_CONTRATO_AC" Type="varchar" MaxLength="40" />
+    <Property Name="TOTAL_CONTRATO_AC" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="CONTRATO_REVENTA" Type="varchar" MaxLength="1" />
+    <Property Name="USR_NO_APRUEBA" Type="varchar" MaxLength="25" />
+    <Property Name="FECHA_NO_APRUEBA" Type="datetime" />
+    <Property Name="RAZON_DESAPRUEBA" Type="varchar" MaxLength="254" />
+    <Property Name="MODULO" Type="varchar" MaxLength="4" />
+    <Property Name="CORREOS_ENVIO" Type="varchar" MaxLength="4000" />
+    <Property Name="CONTRATO_VIGENCIA_DESDE" Type="datetime" />
+    <Property Name="CONTRATO_VIGENCIA_HASTA" Type="datetime" />
+    <Property Name="USO_CFDI" Type="varchar" MaxLength="3" />
+    <Property Name="FORMA_PAGO" Type="varchar" MaxLength="4" />
+    <Property Name="CLAVE_REFERENCIA_DE" Type="varchar" MaxLength="50" />
+    <Property Name="FECHA_REFERENCIA_DE" Type="datetime" />
+    <Property Name="TIPO_OPERACION" Type="varchar" MaxLength="4" />
+    <Property Name="INCOTERMS" Type="varchar" MaxLength="3" />
+    <Property Name="U_AD_WM_NUMERO_VENDEDOR" Type="varchar" MaxLength="9" />
+    <Property Name="U_AD_WM_ENVIAR_GLN" Type="varchar" MaxLength="13" />
+    <Property Name="U_AD_WM_NUMERO_RECEPCION" Type="varchar" MaxLength="8" />
+    <Property Name="U_AD_WM_NUMERO_RECLAMO" Type="varchar" MaxLength="10" />
+    <Property Name="U_AD_WM_FECHA_RECLAMO" Type="varchar" MaxLength="8" />
+    <Property Name="U_AD_PC_NUMERO_VENDEDOR" Type="varchar" MaxLength="12" />
+    <Property Name="U_AD_PC_ENVIAR_GLN" Type="varchar" MaxLength="13" />
+    <Property Name="U_AD_GS_NUMERO_VENDEDOR" Type="varchar" MaxLength="12" />
+    <Property Name="U_AD_GS_ENVIAR_GLN" Type="varchar" MaxLength="13" />
+    <Property Name="U_AD_GS_NUMERO_RECEPCION" Type="varchar" MaxLength="8" />
+    <Property Name="U_AD_GS_FECHA_RECEPCION" Type="varchar" MaxLength="8" />
+    <Property Name="U_AD_AM_NUMERO_PROVEEDOR" Type="varchar" MaxLength="12" />
+    <Property Name="U_AD_AM_ENVIAR_GLN" Type="varchar" MaxLength="13" />
+    <Property Name="U_AD_AM_NUMERO_RECEPCION" Type="varchar" MaxLength="8" />
+    <Property Name="U_AD_AM_NUMERO_RECLAMO" Type="varchar" MaxLength="10" />
+    <Property Name="U_AD_AM_FECHA_RECLAMO" Type="varchar" MaxLength="8" />
+    <Property Name="U_AD_AM_FECHA_RECEPCION" Type="varchar" MaxLength="8" />
+    <Property Name="U_AD_CC_REMISION" Type="varchar" MaxLength="8" />
+    <Property Name="U_AD_CC_FECHA_CONSUMO" Type="date" />
+    <Property Name="U_AD_CC_HOJA_ENTRADA" Type="varchar" MaxLength="8" />
+    <Property Name="ACTIVIDAD_COMERCIAL" Type="varchar" MaxLength="10" />
+    <Property Name="MONTO_OTRO_CARGO" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="CODIGO_REFERENCIA_DE" Type="varchar" MaxLength="2" />
+    <Property Name="TIPO_REFERENCIA_DE" Type="varchar" MaxLength="4" />
+    <Property Name="ES_FACTURA_REEMPLAZO" Type="varchar" MaxLength="1" />
+    <Property Name="FACTURA_ORIGINAL_REEMPLAZO" Type="varchar" MaxLength="50" />
+    <Property Name="CONSECUTIVO_FTC" Type="varchar" MaxLength="10" />
+    <Property Name="NUMERO_FTC" Type="varchar" MaxLength="50" />
+    <Property Name="NIT_TRANSPORTADOR" Type="varchar" MaxLength="20" />
+    <Property Name="NUM_OC_EXENTA" Type="varchar" MaxLength="100" />
+    <Property Name="NUM_CONS_REG_EXO" Type="varchar" MaxLength="100" />
+    <Property Name="NUM_IRSEDE_AGR_GAN" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PEDIDO_LINEA">
+    <Key>
+      <PropertyRef Name="PEDIDO" />
+      <PropertyRef Name="PEDIDO_LINEA" />
+    </Key>
+    <Property Name="PEDIDO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PEDIDO_LINEA" Type="smallint" Nullable="false" />
+    <Property Name="BODEGA" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="LOTE" Type="varchar" MaxLength="15" />
+    <Property Name="LOCALIZACION" Type="varchar" MaxLength="8" />
+    <Property Name="ARTICULO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ESTADO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_ENTREGA" Type="datetime" Nullable="false" />
+    <Property Name="LINEA_USUARIO" Type="smallint" Nullable="false" />
+    <Property Name="PRECIO_UNITARIO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_PEDIDA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_A_FACTURA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_FACTURADA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_RESERVADA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_BONIFICAD" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CANTIDAD_CANCELADA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="TIPO_DESCUENTO" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MONTO_DESCUENTO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="PORC_DESCUENTO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="text" />
+    <Property Name="COMENTARIO" Type="varchar" MaxLength="100" />
+    <Property Name="PEDIDO_LINEA_BONIF" Type="smallint" />
+    <Property Name="UNIDAD_DISTRIBUCIO" Type="varchar" MaxLength="6" />
+    <Property Name="FECHA_PROMETIDA" Type="datetime" Nullable="false" />
+    <Property Name="LINEA_ORDEN_COMPRA" Type="int" />
+    <Property Name="PROYECTO" Type="varchar" MaxLength="25" />
+    <Property Name="FASE" Type="varchar" MaxLength="25" />
+    <Property Name="CENTRO_COSTO" Type="varchar" MaxLength="25" />
+    <Property Name="CUENTA_CONTABLE" Type="varchar" MaxLength="25" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="RAZON_PERDIDA" Type="varchar" MaxLength="250" />
+    <Property Name="TIPO_DESC" Type="varchar" MaxLength="10" />
+    <Property Name="TIPO_IMPUESTO1" Type="varchar" MaxLength="4" />
+    <Property Name="TIPO_TARIFA1" Type="varchar" MaxLength="2" />
+    <Property Name="TIPO_IMPUESTO2" Type="varchar" MaxLength="4" />
+    <Property Name="TIPO_TARIFA2" Type="varchar" MaxLength="2" />
+    <Property Name="PORC_EXONERACION" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="MONTO_EXONERACION" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="PORC_IMPUESTO1" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="PORC_IMPUESTO2" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="ES_OTRO_CARGO" Type="varchar" MaxLength="1" />
+    <Property Name="ES_CANASTA_BASICA" Type="varchar" MaxLength="1" />
+    <Property Name="PORC_EXONERACION2" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="MONTO_EXONERACION2" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="PORC_IMP1_BASE" Type="decimal" Precision="28" Scale="8" />
+    <Property Name="PORC_IMP2_BASE" Type="decimal" Precision="28" Scale="8" />
+  </EntityType>
+  <EntityType Name="PRODUCTOS">
+    <Key>
+      <PropertyRef Name="PRODUCTO_ID" />
+    </Key>
+    <Property Name="PRODUCTO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LINEA_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRESENTACION_ID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NOMBRE_PRODUCTO" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="VALOR_PORCENTAJE_IVA" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ORDEN" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="UNIDADES_BASE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="COSTO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PRECIO_MINIMO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO2" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO3" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO4" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO5" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO6" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO7" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO8" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO9" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO10" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PRODUCTOS_LINEAS">
+    <Key>
+      <PropertyRef Name="LINEA_ID" />
+    </Key>
+    <Property Name="LINEA_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="GRUPO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DESCUENTO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PRODUCTO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRESENTACION_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NOMBRE_PRESENTACION" Type="varchar" MaxLength="50" />
+    <Property Name="CONTENIDO_UNIDADES_BASE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PRECIO_MINIMO" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO2" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO3" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO4" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO5" Type="varchar" MaxLength="100" />
+    <Property Name="FACTOR_CONV_PUNTOS" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FACTOR_CONV_MEDIDA_ESTANDAR" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PRODUCTOS_PRESENTACION">
+    <Key>
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+    </Key>
+    <Property Name="PRODUCTO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRESENTACION_ID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NOMBRE_PRESENTACION" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CONTENIDO_UNIDADES_BASE" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CAMPO1" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO2" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO3" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO4" Type="varchar" MaxLength="100" />
+    <Property Name="CAMPO5" Type="varchar" MaxLength="100" />
+    <Property Name="FACTOR_CONV_PUNTOS" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FACTOR_CONV_MEDIDA_ESTANDAR" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TIPO_NIT">
+    <Key>
+      <PropertyRef Name="TIPO" />
+    </Key>
+    <Property Name="TIPO" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="MASCARA" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NoteExistsFlag" Type="tinyint" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="RowPointer" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="25" />
+    <Property Name="U_TIPO_DOCUMENTO_IDENTIDAD" Type="varchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="TIPOS_CLIENTE">
+    <Key>
+      <PropertyRef Name="TIPO_CLIENTE_ID" />
+    </Key>
+    <Property Name="TIPO_CLIENTE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DESCUENTO_COMERCIAL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DESCUENTO_FINANCIERO1" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DESCUENTO_FINANCIERO2" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DESCUENTO_FINANCIERO3" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TIPOS_IDENTIFICACION">
+    <Key>
+      <PropertyRef Name="TIPO_IDENTIFICACION_ID" />
+    </Key>
+    <Property Name="TIPO_IDENTIFICACION_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Insupan.SOFTLAND.TOKEN' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="TOKEN">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Token" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Insupan.SOFTLAND.ViewAsignacion_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ViewAsignacion_Clientes">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="UBICACION_ID" Type="varchar" MaxLength="8" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Insupan.SOFTLAND.ViewCARTERA_DOCUMENTOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ViewCARTERA_DOCUMENTOS">
+    <Key>
+      <PropertyRef Name="DOCUMENTO" />
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="TIPO" />
+      <PropertyRef Name="FECHA_DOCUMENTO" />
+      <PropertyRef Name="FECHA_BASE" />
+      <PropertyRef Name="FECHA_VENCIMIENTO" />
+      <PropertyRef Name="VALOR_BASE" />
+      <PropertyRef Name="VALOR_TOTAL" />
+      <PropertyRef Name="SALDO_PENDIENTE" />
+      <PropertyRef Name="CONDICIONES_COMERCIALES" />
+      <PropertyRef Name="PORCENTAJE_DESCUENTO1" />
+      <PropertyRef Name="VALOR_IVA" />
+    </Key>
+    <Property Name="DOCUMENTO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="NUMERO_REFERENCIA" Type="varchar" MaxLength="50" />
+    <Property Name="DOCUMENTO_GLOBAL" Type="varchar" MaxLength="50" />
+    <Property Name="FECHA_DOCUMENTO" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_BASE" Type="datetime" Nullable="false" />
+    <Property Name="FECHA_VENCIMIENTO" Type="datetime" Nullable="false" />
+    <Property Name="VALOR_BASE" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="VALOR_TOTAL" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="SALDO_PENDIENTE" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="CONDICIONES_COMERCIALES" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="PORCENTAJE_DESCUENTO1" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="VALOR_IVA" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="OBSERVACIONES" Type="text" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Insupan.SOFTLAND.ViewCLIENTES_CONTACTOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ViewCLIENTES_CONTACTOS">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="CONTACTO_ID" />
+      <PropertyRef Name="NOMBRE" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UBICACION_ID" Type="varchar" MaxLength="249" />
+    <Property Name="CONTACTO_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="TELEFONO" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="249" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Insupan.SOFTLAND.ViewCLIENTES_UBICACIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ViewCLIENTES_UBICACIONES">
+    <Key>
+      <PropertyRef Name="CLIENTE_ID" />
+      <PropertyRef Name="UBICACION_ID" />
+      <PropertyRef Name="NOMBRE_UBICACION" />
+    </Key>
+    <Property Name="CLIENTE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UBICACION_ID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NOMBRE_UBICACION" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Insupan.SOFTLAND.ViewFACTURA_RECAUDO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ViewFACTURA_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+      <PropertyRef Name="FACTURA_ID" />
+      <PropertyRef Name="SALDO_ANTERIOR" />
+      <PropertyRef Name="VALOR_PAGO" />
+      <PropertyRef Name="VALOR_DESCUENTO_FINANCIERO" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FACTURA_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SALDO_ANTERIOR" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="VALOR_PAGO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="VALOR_DESCUENTO_FINANCIERO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Insupan.SOFTLAND.ViewPAGO_RECAUDO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ViewPAGO_RECAUDO">
+    <Key>
+      <PropertyRef Name="RECAUDO_ID" />
+      <PropertyRef Name="TIPO_PAGO" />
+      <PropertyRef Name="VALOR_PAGADO" />
+      <PropertyRef Name="FECHA_DOCUMENTO" />
+    </Key>
+    <Property Name="RECAUDO_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TIPO_PAGO" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="VALOR_PAGADO" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+    <Property Name="BANCO_ID" Type="varchar" MaxLength="20" />
+    <Property Name="FECHA_DOCUMENTO" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Insupan.SOFTLAND.ViewPRODUCTO_DEVUELTOS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ViewPRODUCTO_DEVUELTOS">
+    <Key>
+      <PropertyRef Name="DEVOLUCION_ID" />
+      <PropertyRef Name="ASESOR_ID" />
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+      <PropertyRef Name="CANTIDAD" />
+    </Key>
+    <Property Name="DEVOLUCION_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ASESOR_ID" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="PRODUCTO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRESENTACION_ID" Type="varchar" MaxLength="254" Nullable="false" />
+    <Property Name="CANTIDAD" Type="decimal" Precision="28" Scale="8" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Insupan.SOFTLAND.ViewPRODUCTOS_PRESENTACION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ViewPRODUCTOS_PRESENTACION">
+    <Key>
+      <PropertyRef Name="PRODUCTO_ID" />
+      <PropertyRef Name="PRESENTACION_ID" />
+      <PropertyRef Name="NOMBRE_PRESENTACION" />
+    </Key>
+    <Property Name="PRODUCTO_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PRESENTACION_ID" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="NOMBRE_PRESENTACION" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="CONTENIDO_UNIDADES_BASE" Type="varchar" MaxLength="5" />
+    <Property Name="CAMPO1" Type="varchar" MaxLength="12" />
+    <Property Name="CAMPO2" Type="varchar" MaxLength="12" />
+    <Property Name="CAMPO3" Type="varchar" MaxLength="12" />
+    <Property Name="CAMPO4" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <Association Name="ARPRARTI">
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="1" />
+    <End Role="ARTICULO_PRECIO" Type="Self.ARTICULO_PRECIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULO">
+        <PropertyRef Name="ARTICULO" />
+      </Principal>
+      <Dependent Role="ARTICULO_PRECIO">
+        <PropertyRef Name="ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLASIF4">
+    <End Role="CLASIFICACION" Type="Self.CLASIFICACION" Multiplicity="0..1" />
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_4" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLASIF5">
+    <End Role="CLASIFICACION" Type="Self.CLASIFICACION" Multiplicity="0..1" />
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_5" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLASIF6">
+    <End Role="CLASIFICACION" Type="Self.CLASIFICACION" Multiplicity="0..1" />
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_6" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLSF1">
+    <End Role="CLASIFICACION" Type="Self.CLASIFICACION" Multiplicity="0..1" />
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLSF2">
+    <End Role="CLASIFICACION" Type="Self.CLASIFICACION" Multiplicity="0..1" />
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTCLSF3">
+    <End Role="CLASIFICACION" Type="Self.CLASIFICACION" Multiplicity="0..1" />
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASIFICACION">
+        <PropertyRef Name="CLASIFICACION" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="CLASIFICACION_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTICIMP">
+    <End Role="IMPUESTO" Type="Self.IMPUESTO" Multiplicity="1" />
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IMPUESTO">
+        <PropertyRef Name="IMPUESTO" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="IMPUESTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CLICODIMP">
+    <End Role="IMPUESTO" Type="Self.IMPUESTO" Multiplicity="0..1" />
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IMPUESTO">
+        <PropertyRef Name="IMPUESTO" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="CODIGO_IMPUESTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CLICONDP">
+    <End Role="CONDICION_PAGO" Type="Self.CONDICION_PAGO" Multiplicity="1" />
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDICION_PAGO">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CLIENIPR">
+    <End Role="NIVEL_PRECIO" Type="Self.NIVEL_PRECIO" Multiplicity="1" />
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NIVEL_PRECIO">
+        <PropertyRef Name="NIVEL_PRECIO" />
+        <PropertyRef Name="MONEDA" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="NIVEL_PRECIO" />
+        <PropertyRef Name="MONEDA_NIVEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CLIENTECLICORPASOC">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+    <End Role="CLIENTE1" Type="Self.CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE" />
+      </Principal>
+      <Dependent Role="CLIENTE1">
+        <PropertyRef Name="CLI_CORPORAC_ASOC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCCCCLI">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="DOCUMENTOS_CC" Type="Self.DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCCCCON">
+    <End Role="CONDICION_PAGO" Type="Self.CONDICION_PAGO" Multiplicity="1" />
+    <End Role="DOCUMENTOS_CC" Type="Self.DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDICION_PAGO">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCCODIMP">
+    <End Role="IMPUESTO" Type="Self.IMPUESTO" Multiplicity="0..1" />
+    <End Role="DOCUMENTOS_CC" Type="Self.DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IMPUESTO">
+        <PropertyRef Name="IMPUESTO" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CODIGO_IMPUESTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCCTABN">
+    <End Role="CUENTA_BANCARIA" Type="Self.CUENTA_BANCARIA" Multiplicity="0..1" />
+    <End Role="DOCUMENTOS_CC" Type="Self.DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUENTA_BANCARIA">
+        <PropertyRef Name="CUENTA_BANCO" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CTA_BANCARIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCSCCCLIORIGENCLI">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="DOCUMENTOS_CC" Type="Self.DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CLIENTE_ORIGEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DOCSCCCLIREPORTCLI">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="DOCUMENTOS_CC" Type="Self.DOCUMENTOS_CC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE" />
+      </Principal>
+      <Dependent Role="DOCUMENTOS_CC">
+        <PropertyRef Name="CLIENTE_REPORTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EXBODART">
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="1" />
+    <End Role="EXISTENCIA_BODEGA" Type="Self.EXISTENCIA_BODEGA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULO">
+        <PropertyRef Name="ARTICULO" />
+      </Principal>
+      <Dependent Role="EXISTENCIA_BODEGA">
+        <PropertyRef Name="ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EXTBODBD">
+    <End Role="BODEGA" Type="Self.BODEGA" Multiplicity="1" />
+    <End Role="EXISTENCIA_BODEGA" Type="Self.EXISTENCIA_BODEGA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BODEGA">
+        <PropertyRef Name="BODEGA" />
+      </Principal>
+      <Dependent Role="EXISTENCIA_BODEGA">
+        <PropertyRef Name="BODEGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NIPRPEDI">
+    <End Role="NIVEL_PRECIO" Type="Self.NIVEL_PRECIO" Multiplicity="1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NIVEL_PRECIO">
+        <PropertyRef Name="NIVEL_PRECIO" />
+        <PropertyRef Name="MONEDA" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="NIVEL_PRECIO" />
+        <PropertyRef Name="MONEDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NIVPRECCONDPAG">
+    <End Role="CONDICION_PAGO" Type="Self.CONDICION_PAGO" Multiplicity="0..1" />
+    <End Role="NIVEL_PRECIO" Type="Self.NIVEL_PRECIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDICION_PAGO">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Principal>
+      <Dependent Role="NIVEL_PRECIO">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDIBODE">
+    <End Role="BODEGA" Type="Self.BODEGA" Multiplicity="1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BODEGA">
+        <PropertyRef Name="BODEGA" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="BODEGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICLIE">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICLIECORPORAC">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CLIENTE_CORPORAC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICLIEDIRECCION">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CLIENTE_DIRECCION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICLIEORIGEN">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CLIENTE_ORIGEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PEDICNPG">
+    <End Role="CONDICION_PAGO" Type="Self.CONDICION_PAGO" Multiplicity="1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONDICION_PAGO">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="CONDICION_PAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PELIARTI">
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="1" />
+    <End Role="PEDIDO_LINEA" Type="Self.PEDIDO_LINEA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULO">
+        <PropertyRef Name="ARTICULO" />
+      </Principal>
+      <Dependent Role="PEDIDO_LINEA">
+        <PropertyRef Name="ARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PELIBODE">
+    <End Role="BODEGA" Type="Self.BODEGA" Multiplicity="1" />
+    <End Role="PEDIDO_LINEA" Type="Self.PEDIDO_LINEA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BODEGA">
+        <PropertyRef Name="BODEGA" />
+      </Principal>
+      <Dependent Role="PEDIDO_LINEA">
+        <PropertyRef Name="BODEGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PELIPEDI">
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="1" />
+    <End Role="PEDIDO_LINEA" Type="Self.PEDIDO_LINEA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PEDIDO">
+        <PropertyRef Name="PEDIDO" />
+      </Principal>
+      <Dependent Role="PEDIDO_LINEA">
+        <PropertyRef Name="PEDIDO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRETCL">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="CLIENTE_RETENCION" Type="Self.CLIENTE_RETENCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CLIENTE" />
+      </Principal>
+      <Dependent Role="CLIENTE_RETENCION">
+        <PropertyRef Name="CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InsupanModelStoreContainer">
+    <EntitySet Name="CARGUE_DEVOLUCIONES" EntityType="Self.CARGUE_DEVOLUCIONES" Schema="ERPADMIN" store:Type="Tables" />
+    <EntitySet Name="CARGUE_PEDIDOS" EntityType="Self.CARGUE_PEDIDOS" Schema="ERPADMIN" store:Type="Tables" />
+    <EntitySet Name="ARTICULO" EntityType="Self.ARTICULO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="ARTICULO_PRECIO" EntityType="Self.ARTICULO_PRECIO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="ASIGNACION_BODEGAS" EntityType="Self.ASIGNACION_BODEGAS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="ASIGNACION_CLIENTES" EntityType="Self.ASIGNACION_CLIENTES" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="BANCOS_CUENTAS" EntityType="Self.BANCOS_CUENTAS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="BODEGA" EntityType="Self.BODEGA" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CARTERA_DOCUMENTOS" EntityType="Self.CARTERA_DOCUMENTOS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CARTERA_TIPOS_DOC" EntityType="Self.CARTERA_TIPOS_DOC" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CLASIFICACION" EntityType="Self.CLASIFICACION" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CLIENTE_RETENCION" EntityType="Self.CLIENTE_RETENCION" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CLIENTES_CONTACTOS" EntityType="Self.CLIENTES_CONTACTOS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CLIENTES_UBICACIONES" EntityType="Self.CLIENTES_UBICACIONES" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CONDICION_PAGO" EntityType="Self.CONDICION_PAGO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CONDICIONES_COMERCIALES" EntityType="Self.CONDICIONES_COMERCIALES" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="CUENTA_BANCARIA" EntityType="Self.CUENTA_BANCARIA" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="DETALLE_DEVOLUCIONES" EntityType="Self.DETALLE_DEVOLUCIONES" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="DETALLE_PEDIDOS" EntityType="Self.DETALLE_PEDIDOS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="DEVOLUCION" EntityType="Self.DEVOLUCION" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="DOCUMENTOS_CC" EntityType="Self.DOCUMENTOS_CC" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="ENCABEZADO_DEVOLUCIONES" EntityType="Self.ENCABEZADO_DEVOLUCIONES" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="ENCABEZADO_PEDIDOS" EntityType="Self.ENCABEZADO_PEDIDOS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="ENCABEZADO_RECAUDOS" EntityType="Self.ENCABEZADO_RECAUDOS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="EXISTENCIA_BODEGA" EntityType="Self.EXISTENCIA_BODEGA" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="IMPUESTO" EntityType="Self.IMPUESTO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="INVENTARIO" EntityType="Self.INVENTARIO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="LISTA_DIF_RECAUDO" EntityType="Self.LISTA_DIF_RECAUDO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="LISTA_FACT_RECAUDO" EntityType="Self.LISTA_FACT_RECAUDO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="LISTA_PAG_RECAUDO" EntityType="Self.LISTA_PAG_RECAUDO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="LISTAS_PRECIOS" EntityType="Self.LISTAS_PRECIOS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="MAESTROS_LISTAS_PRECIOS" EntityType="Self.MAESTROS_LISTAS_PRECIOS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="NIVEL_PRECIO" EntityType="Self.NIVEL_PRECIO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="PEDIDO_LINEA" EntityType="Self.PEDIDO_LINEA" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="PRODUCTOS_LINEAS" EntityType="Self.PRODUCTOS_LINEAS" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="PRODUCTOS_PRESENTACION" EntityType="Self.PRODUCTOS_PRESENTACION" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="TIPO_NIT" EntityType="Self.TIPO_NIT" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="TIPOS_CLIENTE" EntityType="Self.TIPOS_CLIENTE" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="TIPOS_IDENTIFICACION" EntityType="Self.TIPOS_IDENTIFICACION" Schema="SOFTLAND" store:Type="Tables" />
+    <EntitySet Name="TOKEN" EntityType="Self.TOKEN" store:Type="Tables" store:Schema="SOFTLAND">
+      <DefiningQuery>SELECT 
+    [TOKEN].[Id] AS [Id], 
+    [TOKEN].[Token] AS [Token]
+    FROM [SOFTLAND].[TOKEN] AS [TOKEN]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewAsignacion_Clientes" EntityType="Self.ViewAsignacion_Clientes" store:Type="Views" store:Schema="SOFTLAND">
+      <DefiningQuery>SELECT 
+    [ViewAsignacion_Clientes].[CLIENTE_ID] AS [CLIENTE_ID], 
+    [ViewAsignacion_Clientes].[ASESOR_ID] AS [ASESOR_ID], 
+    [ViewAsignacion_Clientes].[UBICACION_ID] AS [UBICACION_ID]
+    FROM [SOFTLAND].[ViewAsignacion_Clientes] AS [ViewAsignacion_Clientes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewCARTERA_DOCUMENTOS" EntityType="Self.ViewCARTERA_DOCUMENTOS" store:Type="Views" store:Schema="SOFTLAND">
+      <DefiningQuery>SELECT 
+    [ViewCARTERA_DOCUMENTOS].[DOCUMENTO] AS [DOCUMENTO], 
+    [ViewCARTERA_DOCUMENTOS].[CLIENTE_ID] AS [CLIENTE_ID], 
+    [ViewCARTERA_DOCUMENTOS].[TIPO] AS [TIPO], 
+    [ViewCARTERA_DOCUMENTOS].[NUMERO_REFERENCIA] AS [NUMERO_REFERENCIA], 
+    [ViewCARTERA_DOCUMENTOS].[DOCUMENTO_GLOBAL] AS [DOCUMENTO_GLOBAL], 
+    [ViewCARTERA_DOCUMENTOS].[FECHA_DOCUMENTO] AS [FECHA_DOCUMENTO], 
+    [ViewCARTERA_DOCUMENTOS].[FECHA_BASE] AS [FECHA_BASE], 
+    [ViewCARTERA_DOCUMENTOS].[FECHA_VENCIMIENTO] AS [FECHA_VENCIMIENTO], 
+    [ViewCARTERA_DOCUMENTOS].[VALOR_BASE] AS [VALOR_BASE], 
+    [ViewCARTERA_DOCUMENTOS].[VALOR_TOTAL] AS [VALOR_TOTAL], 
+    [ViewCARTERA_DOCUMENTOS].[SALDO_PENDIENTE] AS [SALDO_PENDIENTE], 
+    [ViewCARTERA_DOCUMENTOS].[CONDICIONES_COMERCIALES] AS [CONDICIONES_COMERCIALES], 
+    [ViewCARTERA_DOCUMENTOS].[PORCENTAJE_DESCUENTO1] AS [PORCENTAJE_DESCUENTO1], 
+    [ViewCARTERA_DOCUMENTOS].[VALOR_IVA] AS [VALOR_IVA], 
+    [ViewCARTERA_DOCUMENTOS].[OBSERVACIONES] AS [OBSERVACIONES]
+    FROM [SOFTLAND].[ViewCARTERA_DOCUMENTOS] AS [ViewCARTERA_DOCUMENTOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewCLIENTES_CONTACTOS" EntityType="Self.ViewCLIENTES_CONTACTOS" store:Type="Views" store:Schema="SOFTLAND">
+      <DefiningQuery>SELECT 
+    [ViewCLIENTES_CONTACTOS].[CLIENTE_ID] AS [CLIENTE_ID], 
+    [ViewCLIENTES_CONTACTOS].[UBICACION_ID] AS [UBICACION_ID], 
+    [ViewCLIENTES_CONTACTOS].[CONTACTO_ID] AS [CONTACTO_ID], 
+    [ViewCLIENTES_CONTACTOS].[NOMBRE] AS [NOMBRE], 
+    [ViewCLIENTES_CONTACTOS].[TELEFONO] AS [TELEFONO], 
+    [ViewCLIENTES_CONTACTOS].[EMAIL] AS [EMAIL]
+    FROM [SOFTLAND].[ViewCLIENTES_CONTACTOS] AS [ViewCLIENTES_CONTACTOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewCLIENTES_UBICACIONES" EntityType="Self.ViewCLIENTES_UBICACIONES" store:Type="Views" store:Schema="SOFTLAND">
+      <DefiningQuery>SELECT 
+    [ViewCLIENTES_UBICACIONES].[CLIENTE_ID] AS [CLIENTE_ID], 
+    [ViewCLIENTES_UBICACIONES].[UBICACION_ID] AS [UBICACION_ID], 
+    [ViewCLIENTES_UBICACIONES].[NOMBRE_UBICACION] AS [NOMBRE_UBICACION]
+    FROM [SOFTLAND].[ViewCLIENTES_UBICACIONES] AS [ViewCLIENTES_UBICACIONES]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewFACTURA_RECAUDO" EntityType="Self.ViewFACTURA_RECAUDO" store:Type="Views" store:Schema="SOFTLAND">
+      <DefiningQuery>SELECT 
+    [ViewFACTURA_RECAUDO].[RECAUDO_ID] AS [RECAUDO_ID], 
+    [ViewFACTURA_RECAUDO].[FACTURA_ID] AS [FACTURA_ID], 
+    [ViewFACTURA_RECAUDO].[SALDO_ANTERIOR] AS [SALDO_ANTERIOR], 
+    [ViewFACTURA_RECAUDO].[VALOR_PAGO] AS [VALOR_PAGO], 
+    [ViewFACTURA_RECAUDO].[VALOR_DESCUENTO_FINANCIERO] AS [VALOR_DESCUENTO_FINANCIERO]
+    FROM [SOFTLAND].[ViewFACTURA_RECAUDO] AS [ViewFACTURA_RECAUDO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewPAGO_RECAUDO" EntityType="Self.ViewPAGO_RECAUDO" store:Type="Views" store:Schema="SOFTLAND">
+      <DefiningQuery>SELECT 
+    [ViewPAGO_RECAUDO].[RECAUDO_ID] AS [RECAUDO_ID], 
+    [ViewPAGO_RECAUDO].[TIPO_PAGO] AS [TIPO_PAGO], 
+    [ViewPAGO_RECAUDO].[VALOR_PAGADO] AS [VALOR_PAGADO], 
+    [ViewPAGO_RECAUDO].[BANCO_ID] AS [BANCO_ID], 
+    [ViewPAGO_RECAUDO].[FECHA_DOCUMENTO] AS [FECHA_DOCUMENTO]
+    FROM [SOFTLAND].[ViewPAGO_RECAUDO] AS [ViewPAGO_RECAUDO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewPRODUCTO_DEVUELTOS" EntityType="Self.ViewPRODUCTO_DEVUELTOS" store:Type="Views" store:Schema="SOFTLAND">
+      <DefiningQuery>SELECT 
+    [ViewPRODUCTO_DEVUELTOS].[DEVOLUCION_ID] AS [DEVOLUCION_ID], 
+    [ViewPRODUCTO_DEVUELTOS].[ASESOR_ID] AS [ASESOR_ID], 
+    [ViewPRODUCTO_DEVUELTOS].[PRODUCTO_ID] AS [PRODUCTO_ID], 
+    [ViewPRODUCTO_DEVUELTOS].[PRESENTACION_ID] AS [PRESENTACION_ID], 
+    [ViewPRODUCTO_DEVUELTOS].[CANTIDAD] AS [CANTIDAD]
+    FROM [SOFTLAND].[ViewPRODUCTO_DEVUELTOS] AS [ViewPRODUCTO_DEVUELTOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewPRODUCTOS_PRESENTACION" EntityType="Self.ViewPRODUCTOS_PRESENTACION" store:Type="Views" store:Schema="SOFTLAND">
+      <DefiningQuery>SELECT 
+    [ViewPRODUCTOS_PRESENTACION].[PRODUCTO_ID] AS [PRODUCTO_ID], 
+    [ViewPRODUCTOS_PRESENTACION].[PRESENTACION_ID] AS [PRESENTACION_ID], 
+    [ViewPRODUCTOS_PRESENTACION].[NOMBRE_PRESENTACION] AS [NOMBRE_PRESENTACION], 
+    [ViewPRODUCTOS_PRESENTACION].[CONTENIDO_UNIDADES_BASE] AS [CONTENIDO_UNIDADES_BASE], 
+    [ViewPRODUCTOS_PRESENTACION].[CAMPO1] AS [CAMPO1], 
+    [ViewPRODUCTOS_PRESENTACION].[CAMPO2] AS [CAMPO2], 
+    [ViewPRODUCTOS_PRESENTACION].[CAMPO3] AS [CAMPO3], 
+    [ViewPRODUCTOS_PRESENTACION].[CAMPO4] AS [CAMPO4]
+    FROM [SOFTLAND].[ViewPRODUCTOS_PRESENTACION] AS [ViewPRODUCTOS_PRESENTACION]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="ARPRARTI" Association="Self.ARPRARTI">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="ARTICULO_PRECIO" EntitySet="ARTICULO_PRECIO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLASIF4" Association="Self.ARTCLASIF4">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLASIF5" Association="Self.ARTCLASIF5">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLASIF6" Association="Self.ARTCLASIF6">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLSF1" Association="Self.ARTCLSF1">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLSF2" Association="Self.ARTCLSF2">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTCLSF3" Association="Self.ARTCLSF3">
+      <End Role="CLASIFICACION" EntitySet="CLASIFICACION" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTICIMP" Association="Self.ARTICIMP">
+      <End Role="IMPUESTO" EntitySet="IMPUESTO" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="CLICODIMP" Association="Self.CLICODIMP">
+      <End Role="IMPUESTO" EntitySet="IMPUESTO" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="CLICONDP" Association="Self.CLICONDP">
+      <End Role="CONDICION_PAGO" EntitySet="CONDICION_PAGO" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="CLIENIPR" Association="Self.CLIENIPR">
+      <End Role="NIVEL_PRECIO" EntitySet="NIVEL_PRECIO" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="CLIENTECLICORPASOC" Association="Self.CLIENTECLICORPASOC">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="CLIENTE1" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="DOCCCCLI" Association="Self.DOCCCCLI">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="DOCCCCON" Association="Self.DOCCCCON">
+      <End Role="CONDICION_PAGO" EntitySet="CONDICION_PAGO" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="DOCCODIMP" Association="Self.DOCCODIMP">
+      <End Role="IMPUESTO" EntitySet="IMPUESTO" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="DOCCTABN" Association="Self.DOCCTABN">
+      <End Role="CUENTA_BANCARIA" EntitySet="CUENTA_BANCARIA" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="DOCSCCCLIORIGENCLI" Association="Self.DOCSCCCLIORIGENCLI">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="DOCSCCCLIREPORTCLI" Association="Self.DOCSCCCLIREPORTCLI">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="DOCUMENTOS_CC" EntitySet="DOCUMENTOS_CC" />
+    </AssociationSet>
+    <AssociationSet Name="EXBODART" Association="Self.EXBODART">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="EXISTENCIA_BODEGA" EntitySet="EXISTENCIA_BODEGA" />
+    </AssociationSet>
+    <AssociationSet Name="EXTBODBD" Association="Self.EXTBODBD">
+      <End Role="BODEGA" EntitySet="BODEGA" />
+      <End Role="EXISTENCIA_BODEGA" EntitySet="EXISTENCIA_BODEGA" />
+    </AssociationSet>
+    <AssociationSet Name="NIPRPEDI" Association="Self.NIPRPEDI">
+      <End Role="NIVEL_PRECIO" EntitySet="NIVEL_PRECIO" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="NIVPRECCONDPAG" Association="Self.NIVPRECCONDPAG">
+      <End Role="CONDICION_PAGO" EntitySet="CONDICION_PAGO" />
+      <End Role="NIVEL_PRECIO" EntitySet="NIVEL_PRECIO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDIBODE" Association="Self.PEDIBODE">
+      <End Role="BODEGA" EntitySet="BODEGA" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICLIE" Association="Self.PEDICLIE">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICLIECORPORAC" Association="Self.PEDICLIECORPORAC">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICLIEDIRECCION" Association="Self.PEDICLIEDIRECCION">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICLIEORIGEN" Association="Self.PEDICLIEORIGEN">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PEDICNPG" Association="Self.PEDICNPG">
+      <End Role="CONDICION_PAGO" EntitySet="CONDICION_PAGO" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="PELIARTI" Association="Self.PELIARTI">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="PEDIDO_LINEA" EntitySet="PEDIDO_LINEA" />
+    </AssociationSet>
+    <AssociationSet Name="PELIBODE" Association="Self.PELIBODE">
+      <End Role="BODEGA" EntitySet="BODEGA" />
+      <End Role="PEDIDO_LINEA" EntitySet="PEDIDO_LINEA" />
+    </AssociationSet>
+    <AssociationSet Name="PELIPEDI" Association="Self.PELIPEDI">
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+      <End Role="PEDIDO_LINEA" EntitySet="PEDIDO_LINEA" />
+    </AssociationSet>
+    <AssociationSet Name="PRETCL" Association="Self.PRETCL">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="CLIENTE_RETENCION" EntitySet="CLIENTE_RETENCION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

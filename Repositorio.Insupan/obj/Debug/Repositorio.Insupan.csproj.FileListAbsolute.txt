@@ -1,0 +1,15 @@
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\Repositorio.Insupan.dll.config
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\Repositorio.Insupan.dll
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\Repositorio.Insupan.pdb
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\Dominio.Insupan.dll
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\EntityFramework.dll
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\Dominio.Insupan.pdb
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\Dominio.Insupan.dll.config
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\EntityFramework.xml
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\obj\Debug\Repositorio.Insupan.csprojAssemblyReference.cache
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\obj\Debug\Repositorio.Insupan.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\obj\Debug\Repositorio.Insupan.csproj.CopyComplete
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\obj\Debug\Repositorio.Insupan.dll
+C:\Users\user\source\repos\ws-Insupan\Repositorio.Insupan\obj\Debug\Repositorio.Insupan.pdb

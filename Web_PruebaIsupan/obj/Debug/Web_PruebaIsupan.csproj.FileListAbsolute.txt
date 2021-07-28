@@ -1,0 +1,2 @@
+C:\Users\user\source\repos\ws-Insupan\Web_PruebaIsupan\obj\Debug\Web_PruebaIsupan.csprojAssemblyReference.cache
+C:\Users\user\source\repos\ws-Insupan\Web_PruebaIsupan\obj\Debug\Web_PruebaIsupan.csproj.CoreCompileInputs.cache
